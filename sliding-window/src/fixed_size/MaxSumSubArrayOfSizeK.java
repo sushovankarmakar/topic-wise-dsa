@@ -6,7 +6,8 @@ package fixed_size;
  * https://www.youtube.com/watch?v=KtpqeN0Goro&ab_channel=AdityaVerma
  */
 
-public class MaxSumSubarrayOfSizeK {
+public class MaxSumSubArrayOfSizeK {
+
   private int getMaxSumSubarray(int[] arr, int k) {
     int n = arr.length;
     int maxSum = Integer.MIN_VALUE;
