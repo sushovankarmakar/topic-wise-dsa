@@ -8,18 +8,22 @@ package fixed_size;
 
 public class MaxSumSubArrayOfSizeK {
 
-  private int getMaxSumSubarray(int[] arr, int k) {
+  public static void main(String[] args) {
+    int[] arr = new int[]{100, 200, 300, 400};
+    System.out.println(getMaxSumSubarray(arr, 2));
+  }
+
+  private static int getMaxSumSubarray(int[] arr, int k) {
     int n = arr.length;
     int maxSum = Integer.MIN_VALUE;
 
     int left = 0, right = 0;
-    int windowSize = right - left + 1;
     int currSum = 0;
 
     for (; right < n; right++) {
       currSum += arr[right];
 
-      if (windowSize == k) {
+      if ((right - left + 1) == k) {  // right - left + 1 <- is the window size.
         maxSum = Math.max(maxSum, currSum);
 
         currSum -= arr[left];
