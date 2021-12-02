@@ -21,6 +21,25 @@ public class SegregateEvenOddNodesInLL {
 
   }
 
+  /*
+   * The idea is to split the linked list into two:
+   * one containing all even nodes and other containing all odd nodes.
+   * And finally, attach the odd node linked list after the even node linked list.
+   *
+   * To split the Linked List,
+   * traverse the original Linked List and move all odd nodes to a separate Linked List of all odd nodes.
+   * At the end of loop,
+   * the original list will have all the even nodes and
+   * the odd node list will have all the odd nodes.
+   * To keep the ordering of all nodes same, we must insert all the odd nodes at the end of the odd node list.
+   * And to do that in constant time, we must keep track of last pointer in the odd node list.
+   *
+   * https://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/ (2nd method)
+   *
+   * Time Complexity : O(N)
+   * Space Complexity : O(1)
+   */
+
   private static ListNode divide(ListNode head) {
 
     ListNode oddFirst = null, oddLast = null;
