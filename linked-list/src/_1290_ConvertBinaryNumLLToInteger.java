@@ -27,11 +27,16 @@ public class _1290_ConvertBinaryNumLLToInteger {
    * 2	    ‘0’	        (1x2) + 0	  2
    * 3	    ‘1’	        (2*2) + 1	  5
    */
+  /* Note:
+  * Operation is always the previous multiplied by the counting system.
+  * In this way, we're doing decimal so x10. If we were doing hex, it'll x16. Binary will be x 2.
+  */
+  // MOST OPTIMAL SOLUTION
   public static int getDecimalValue(ListNode head) {
     int sum = 0;
 
     while (head != null) {
-      sum *= 2;
+      sum *= 2;             // when we encounter the next digit, we multiply by 2.
       sum += head.val;
 
       head = head.next;
