@@ -58,7 +58,7 @@ public class LastDigitOfPowerForLargeNums {
     }
 
     // step 3
-    int newPower = (num2 % 4 == 0) ? 4 : (num2 % 4);
+    int newPower = (num2 % 4 == 0) ? 4 : (num2 % 4);    // value of newPower can be only among 1,2,3,4
 
     // step 4
     int lastDigit = (int) Math.pow(num1, newPower) % 10;
