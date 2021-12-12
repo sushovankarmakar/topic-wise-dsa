@@ -18,7 +18,7 @@ import java.util.Arrays;
  * https://www.youtube.com/watch?v=yYqShJj-ydA&ab_channel=codeExplainer
  */
 
-public class _213_HouseRobber2 {
+public class HouseRobber2_213 {
 
   public static void main(String[] args) {
     System.out.println(robMaxMoneyFromCircle(new int[]{2, 3, 2}));  // 3

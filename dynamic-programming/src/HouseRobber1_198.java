@@ -12,7 +12,7 @@ package src;
  * https://www.youtube.com/watch?v=yYqShJj-ydA&ab_channel=codeExplainer
  */
 
-public class _198_HouseRobber1 {
+public class HouseRobber1_198 {
 
   public static void main(String[] args) {
     System.out.println(robMaxMoney(new int[]{1, 2, 3, 1})); // 4

@@ -11,7 +11,7 @@ import java.util.Map;
  * https://www.youtube.com/watch?v=yYqShJj-ydA&ab_channel=codeExplainer
  */
 
-public class _337_HouseRobber3 {
+public class HouseRobber3_337 {
 
   public static void main(String[] args) {
   }
