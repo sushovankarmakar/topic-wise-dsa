@@ -6,6 +6,7 @@ package src;
  *
  * https://www.youtube.com/watch?v=IO2D1g2QP6E&ab_channel=CodeNCode (A good explanation)
  * https://www.youtube.com/watch?v=ldhT2uVSdUQ&ab_channel=TECHDOSE
+ * https://www.youtube.com/watch?v=b7AYbpM5YrE&ab_channel=takeUforward (Power Set | Print all Subsequences)
  */
 public class CheckIfKthBitIsSetOrNot {
 
