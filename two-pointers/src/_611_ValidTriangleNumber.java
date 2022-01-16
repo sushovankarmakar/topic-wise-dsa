@@ -7,11 +7,12 @@ import java.util.Arrays;
  * https://practice.geeksforgeeks.org/problems/form-a-triangle5935/1/
  * https://practice.geeksforgeeks.org/problems/count-possible-triangles-1587115620/1
  *
- * https://practice.geeksforgeeks.org/problems/maximum-perimeter-of-triangle-from-array4322/1/ (ALMOST SIMILAR)
- *
  * https://www.youtube.com/watch?v=pmsex9gj1PI&ab_channel=CodingDecoded
  *
  * https://www.geeksforgeeks.org/find-number-of-triangles-possible/
+ *
+ * https://practice.geeksforgeeks.org/problems/maximum-perimeter-of-triangle-from-array4322/1/ (ALMOST SIMILAR)
+ * https://www.geeksforgeeks.org/maximum-perimeter-triangle-from-array/
  */
 public class _611_ValidTriangleNumber {
 
@@ -31,7 +32,7 @@ public class _611_ValidTriangleNumber {
   }
 
   /**
-   * Two pointer approach.
+   * Two pointer approach. Almost similar to 3 sum problem.
    *
    * time  complexity : O(N^2)
    * space complexity : O(1)
