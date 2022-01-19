@@ -7,6 +7,7 @@ import java.util.Arrays;
  * https://practice.geeksforgeeks.org/problems/form-a-triangle5935/1/
  * https://practice.geeksforgeeks.org/problems/count-possible-triangles-1587115620/1
  *
+ * https://www.youtube.com/watch?v=PqEiJDdt3S4&ab_channel=Pepcoding (Best Explanation)
  * https://www.youtube.com/watch?v=pmsex9gj1PI&ab_channel=CodingDecoded
  *
  * https://www.geeksforgeeks.org/find-number-of-triangles-possible/
