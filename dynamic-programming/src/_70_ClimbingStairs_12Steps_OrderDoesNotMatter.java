@@ -11,8 +11,8 @@ public class _70_ClimbingStairs_12Steps_OrderDoesNotMatter {
   public static void main(String[] args) {
     System.out.println(nthStair(0));  // 1
     System.out.println(nthStair(1));  // 1
-    System.out.println(nthStair(2));  // 2
-    System.out.println(nthStair(3));  // 2
+    System.out.println(nthStair(2));  // 2 ways to reach 2nd stair. {1, 1} and {2}
+    System.out.println(nthStair(3));  // 2 ways to reach 2nd stair. {1, 1, 1} and {1, 2}
     System.out.println(nthStair(4));  // 3 ways to reach 4th stair. {1, 1, 1, 1}, {1, 1, 2} and {2, 2}
     System.out.println(nthStair(5));  // 3 ways to reach 5th stair. {1, 1, 1, 1, 1}, {1, 1, 2, 1} and {1, 2, 2}
     System.out.println(nthStair(6));  // 4
