@@ -20,6 +20,8 @@ public class _746_MinCostClimbingStairs {
     System.out.println(minCostClimbingStairs_2(new int[]{10, 15, 20})); // 15
     System.out.println(minCostClimbingStairs_2(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1})); // 6
     System.out.println(minCostClimbingStairs_2(new int[]{16, 19, 10, 12, 18})); // 31
+
+    printMinCostPathForReachingTop(new int[]{3, 2, 4, 6, 1, 1, 5, 3});
   }
 
   // time complexity : O(N)
@@ -72,5 +74,55 @@ public class _746_MinCostClimbingStairs {
     // and we need to take the minimum of these two.
     return Math.min(minCost[n - 1], minCost[n - 2]);
 
+  }
+
+  // https://www.youtube.com/watch?v=3hHmUszRXjw&t=62s&ab_channel=AndreyGrehov
+  // https://github.com/andreygrehov/dp/blob/master/lecture8/lecture8.go
+  public static void printMinCostPathForReachingTop(int[] costs) {
+
+    int n = costs.length;
+
+    Pair[] pairs = new Pair[n + 1];
+    pairs[0] = new Pair(0, 0);
+    pairs[1] = new Pair(costs[1], 0);
+
+    for (int i = 2; i <= n; i++) {
+
+      if (pairs[i - 1].minCost > pairs[i - 2].minCost) {
+        Pair pair = new Pair(pairs[i - 2].minCost + costs[i - 1], i - 2);
+        pairs[i] = pair;
+      } else {
+        Pair pair = new Pair(pairs[i - 1].minCost + costs[i - 1], i - 1);
+        pairs[i] = pair;
+      }
+    }
+
+    // 0   3   2   4   6   1   1   5   3
+    // |---|---|---|---|---|---|---|---|
+    // 0   1   2   3   4   5   6   7   8
+    //
+    // 0 -> 2 -> 3 -> 5 -> 6 -> 8 = 11
+
+    /**
+     * Reached step 8 from step 6
+     * Reached step 6 from step 5
+     * Reached step 5 from step 3
+     * Reached step 3 from step 2
+     * Reached step 2 from step 0
+     */
+    for (int i = n; i > 0; ) {
+      System.out.println("Reached step " + i + " from step " + (pairs[i].lastStair));
+      i = pairs[i].lastStair;
+    }
+  }
+
+  static class Pair {
+    int minCost; // min cost to reach this current stair.
+    int lastStair; // from which last stair, we reached this current stair.
+
+    Pair (int minCost, int lastStair) {
+      this.minCost = minCost;
+      this.lastStair = lastStair;
+    }
   }
 }
