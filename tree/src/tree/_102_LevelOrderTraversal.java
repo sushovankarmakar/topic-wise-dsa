@@ -2,6 +2,7 @@ package tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Queue;
  * https://practice.geeksforgeeks.org/problems/level-order-traversal/1
  * https://leetcode.com/problems/binary-tree-level-order-traversal/
  */
-public class LevelOrderTraversal {
+public class _102_LevelOrderTraversal {
 
   /**
    * Level order traversal, left view and right view has the same structure.
