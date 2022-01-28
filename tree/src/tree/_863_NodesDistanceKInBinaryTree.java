@@ -20,6 +20,10 @@ import java.util.Set;
  */
 public class _863_NodesDistanceKInBinaryTree {
 
+  /**
+   * IMPORTANT RULE :
+   * if we need to find the tree's parent or ancestor, we always have to store them in child parent map first.
+   */
   public static List<Integer> KDistanceTreeNodes(TreeNode root, int target, int k) {
 
     if (root == null) {
