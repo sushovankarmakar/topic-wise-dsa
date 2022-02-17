@@ -93,21 +93,28 @@ public class _42_TrappingRainWater {
     int rightMax = 0;
     int totalWater = 0;
 
+    /**
+     * between left height and right height, take smaller value.
+     * and each height, always do two things.
+     * step 1. either it is the max, then update it
+     * step 2. if it not max, subtract from max and add to the total water.
+     */
     while (left <= right) {
+
 
       if (heights[left] <= heights[right]) {
 
         if (heights[left] >= leftMax) {
-          leftMax = heights[left];
+          leftMax = heights[left];  // step 1
         } else {
-          totalWater += (leftMax - heights[left]);
+          totalWater += (leftMax - heights[left]); // step 2
         }
         left++;
       } else {
         if (heights[right] >= rightMax) {
-          rightMax = heights[right];
+          rightMax = heights[right]; // step 1
         } else {
-          totalWater += (rightMax - heights[right]);
+          totalWater += (rightMax - heights[right]); // step 2
         }
         right--;
       }
