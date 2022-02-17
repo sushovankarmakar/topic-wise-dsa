@@ -5,6 +5,7 @@ package src;
  * https://leetcode.com/problems/trapping-rain-water/
  *
  * https://www.geeksforgeeks.org/trapping-rain-water/
+ * https://workat.tech/problem-solving/practice/trapped-rain-water/editorial
  *
  * https://www.youtube.com/watch?v=m18Hntz4go8&ab_channel=takeUforward
  * https://www.youtube.com/watch?v=FbGG2qpNp4U&ab_channel=AdityaVerma
@@ -19,8 +20,14 @@ public class _42_TrappingRainWater {
     System.out.println(trap(new int[]{7,4,0,9})); // 10
     System.out.println(trap(new int[]{6,9,9})); // 0
     System.out.println(trap(new int[]{3,0,0,2,0,4})); // 10
+
+    System.out.println(trap_space_optimized_solution(new int[]{0,1,0,2,1,0,1,3,2,1,2,1})); // 6
   }
 
+  /**
+   * Time  complexity : O(n)
+   * Space complexity : O(n)
+   */
   public static int trap(int[] heights) {
 
     if (heights.length <= 2) {
@@ -69,5 +76,42 @@ public class _42_TrappingRainWater {
     }
 
     return amount;
+  }
+
+  // https://www.youtube.com/watch?v=m18Hntz4go8&t=273s&ab_channel=takeUforward
+  // (GREAT EXPLANATION- i understood from this)
+  /**
+   * Time  complexity : O(n)
+   * Space complexity : O(1)
+   */
+  public static int trap_space_optimized_solution(int[] heights) {
+
+    int n = heights.length;
+    int left = 0;
+    int right = n - 1;
+    int leftMax = 0;
+    int rightMax = 0;
+    int totalWater = 0;
+
+    while (left <= right) {
+
+      if (heights[left] <= heights[right]) {
+
+        if (heights[left] >= leftMax) {
+          leftMax = heights[left];
+        } else {
+          totalWater += (leftMax - heights[left]);
+        }
+        left++;
+      } else {
+        if (heights[right] >= rightMax) {
+          rightMax = heights[right];
+        } else {
+          totalWater += (rightMax - heights[right]);
+        }
+        right--;
+      }
+    }
+    return totalWater;
   }
 }
