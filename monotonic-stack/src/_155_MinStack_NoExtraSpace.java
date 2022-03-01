@@ -10,6 +10,8 @@ import java.util.Stack;
  * https://leetcode.com/problems/min-stack/
  * https://practice.geeksforgeeks.org/problems/get-minimum-element-from-stack/1/
  * https://practice.geeksforgeeks.org/problems/special-stack/1/
+ *
+ * https://leetcode.com/problems/min-stack/discuss/49010/Clean-6ms-Java-solution (Very Good Solution)
  */
 
 /**
@@ -79,4 +81,8 @@ public class _155_MinStack_NoExtraSpace {
             }
         }
     }
+
+    /**
+     * Same question, in leetcode variant, we need to use Long instead of Integer. Logic will be same.
+     */
 }

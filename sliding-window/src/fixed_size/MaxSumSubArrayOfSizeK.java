@@ -2,34 +2,40 @@ package fixed_size;
 
 /**
  * https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
+ * <p>
+ * https://www.youtube.com/watch?v=KtpqeN0Goro&ab_channel=AdityaVerma (BEST)
  *
- * https://www.youtube.com/watch?v=KtpqeN0Goro&ab_channel=AdityaVerma
+ * https://www.callicoder.com/maximum-sum-subarray-of-size-k/ (Good explanation)
  */
 
 public class MaxSumSubArrayOfSizeK {
 
-  public static void main(String[] args) {
-    int[] arr = new int[]{100, 200, 300, 400};
-    System.out.println(getMaxSumSubarray(arr, 2));
-  }
+    public static void main(String[] args) {
+        int[] arr = new int[]{100, 200, 300, 400};
+        System.out.println(getMaxSumSubArray(arr, 2));  // 700
 
-  private static int getMaxSumSubarray(int[] arr, int k) {
-    int n = arr.length;
-    int maxSum = Integer.MIN_VALUE;
-
-    int left = 0, right = 0;
-    int currSum = 0;
-
-    for (; right < n; right++) {
-      currSum += arr[right];
-
-      if ((right - left + 1) == k) {  // right - left + 1 <- is the window size.
-        maxSum = Math.max(maxSum, currSum);
-
-        currSum -= arr[left];
-        left++;
-      }
+        System.out.println(getMaxSumSubArray(new int[]{2, 5, 1, 8, 2, 9, 1}, 3));   // 19
     }
-    return maxSum;
-  }
+
+    private static int getMaxSumSubArray(int[] arr, int k) {
+        int n = arr.length;
+        int maxSum = Integer.MIN_VALUE;
+
+        int left = 0, right = 0;
+        int currSum = 0;
+
+        for (; right < n; right++) {
+
+            currSum += arr[right];
+            int window = right - left + 1; // right - left + 1 <- is the window size.
+
+            if (window == k) {
+                maxSum = Math.max(maxSum, currSum);
+
+                currSum -= arr[left];
+                left++;
+            }
+        }
+        return maxSum;
+    }
 }
