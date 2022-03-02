@@ -5,6 +5,9 @@ import java.util.Stack;
 /**
  * https://leetcode.com/problems/valid-parentheses/
  * https://practice.geeksforgeeks.org/problems/parenthesis-checker2744/1
+ * https://practice.geeksforgeeks.org/problems/valid-expression1025/1/
+ *
+ * https://leetcode.com/problems/valid-parentheses/discuss/9178/Short-java-solution (BEST SHORT SOLUTION)
  */
 public class _20_ValidParentheses {
 
