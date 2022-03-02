@@ -7,6 +7,8 @@ import java.util.Stack;
  * https://leetcode.com/problems/online-stock-span/ (Description is a bit different)
  *
  * https://www.youtube.com/watch?v=p9T-fE1g1pU&ab_channel=AdityaVerma (He told the similarity)
+ *
+ * https://leetcode.com/problems/online-stock-span/discuss/640358/JAVA-Solution-With-visualization-and-easy-explained!
  */
 public class _901_StockSpanProblem {
 
