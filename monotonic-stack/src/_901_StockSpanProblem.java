@@ -4,11 +4,11 @@ import java.util.Stack;
 
 /**
  * https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1/
- * https://leetcode.com/problems/online-stock-span/
+ * https://leetcode.com/problems/online-stock-span/ (Description is a bit different)
  *
  * https://www.youtube.com/watch?v=p9T-fE1g1pU&ab_channel=AdityaVerma (He told the similarity)
  */
-public class StockSpanProblem {
+public class _901_StockSpanProblem {
 
   public static void main(String[] args) {
     int[] spans = calculateSpan(new int[]{100, 80, 60, 70, 60, 75, 85}, 7);
@@ -51,6 +51,48 @@ public class StockSpanProblem {
       this.price = price;
       this.pos = pos;
     }
+  }
+
+  // ----------------------------------------------------------------------------------------------
+  // LEETCODE version
+  class StockSpanner {
+
+    private Stack<Pair> stack;
+
+    public StockSpanner() {
+      stack = new Stack<>();
+    }
+
+    public int next(int price) {
+
+      int currSpan = 1;
+
+      // find next greater element on left
+      while (!stack.isEmpty() && stack.peek().price <= price) {
+        currSpan += stack.peek().span;
+        stack.pop();
+      }
+
+      stack.push(new Pair(price, currSpan));
+
+      return currSpan;
+    }
+
+    class Pair {
+      int price;
+      int span;
+
+      Pair(int price, int span) {
+        this.price = price;
+        this.span = span;
+      }
+    }
+
+    /**
+     * Your StockSpanner object will be instantiated and called as such:
+     * StockSpanner obj = new StockSpanner();
+     * int param_1 = obj.next(price);
+     */
   }
 
 }
