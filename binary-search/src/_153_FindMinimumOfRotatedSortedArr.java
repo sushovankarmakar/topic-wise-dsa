@@ -5,6 +5,17 @@ package src;
  */
 public class _153_FindMinimumOfRotatedSortedArr {
 
+  public static void main(String[] args) {
+    System.out.println(findMin(new int[]{1, 2, 3}));
+    System.out.println(findMin(new int[]{3, 1, 2}));
+    System.out.println(findMin(new int[]{4, 3, 1, 2}));
+    System.out.println(findMin(new int[]{7, 6, 5, 1, 10}));
+    System.out.println(findMin(new int[]{10, 6, 5, 1, 7}));
+    System.out.println(findMin(new int[]{7, 1, 5, 6, 10}));
+    System.out.println(findMin(new int[]{2, 1, 3}));
+    //System.out.println(findMin(new int[]{}));
+  }
+
   /**
    * https://www.youtube.com/watch?v=vF7gk4iaklA&ab_channel=Pepcoding (A good understanding from diagram)
    * https://www.youtube.com/watch?v=CihX9yKR2xk&ab_channel=CodingDecoded (A good solution with example)
@@ -14,7 +25,7 @@ public class _153_FindMinimumOfRotatedSortedArr {
    * After diving, we'll always find the minimum element in the unsorted side,
    * so discard the sorted side and go the unsorted side.
    */
-  public int findMin(int[] nums) {
+  public static int findMin(int[] nums) {
 
     int n = nums.length;
     int start = 0;
