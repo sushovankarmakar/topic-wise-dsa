@@ -1,0 +1,10 @@
+1. knapsack recursive
+2. knapsack memoization
+3. knapsack top down
+4. subset sum problem
+5. equal sum partition problem.
+6. count subsets sum with a given sum
+7. minimum subset sum difference
+8. count the number of subset with a given difference
+9. target sum
+-------------
