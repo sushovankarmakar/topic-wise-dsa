@@ -1,5 +1,8 @@
 package src;
 
+/**
+ * https://www.youtube.com/watch?v=ot_XBHyqpFc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=12&ab_channel=AdityaVerma
+ */
 public class CountTheNumberOfSubsetWithGivenDiff {
 
     public static void main(String[] args) {
