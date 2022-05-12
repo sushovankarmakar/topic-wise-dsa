@@ -3,8 +3,10 @@ package src;
 /**
  * https://leetcode.com/problems/target-sum/
  * https://practice.geeksforgeeks.org/problems/target-sum-1626326450/1
- *
+ * <p>
  * https://www.youtube.com/watch?v=Hw6Ygp3JBYw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=13&ab_channel=AdityaVerma
+ * <p>
+ * https://leetcode.com/problems/target-sum/discuss/455024/DP-IS-EASY!-5-Steps-to-Think-Through-DP-Questions.
  */
 public class _494_TargetSum {
 
@@ -20,9 +22,9 @@ public class _494_TargetSum {
      * 9
      * 0 0 0 0 0 0 0 0 1
      * 1
-     *
+     * <p>
      * output : 256
-     *
+     * <p>
      * - this example shows that how to handle inputs where there is zeros.
      */
     public static void main(String[] args) {
@@ -30,14 +32,26 @@ public class _494_TargetSum {
         System.out.println(findTargetSumWays(new int[]{1}, 1, 1)); // 1
         System.out.println(findTargetSumWays(new int[]{9, 2, 9}, 3, 3)); // 0
         System.out.println(findTargetSumWays(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 1}, 9, 1)); // 256
+        System.out.println(findTargetSumWays(new int[]{1}, 1, 2)); // 0
+        System.out.println(findTargetSumWays(new int[]{1000}, 1, -1000)); // 1
+        System.out.println(findTargetSumWays(new int[]{200}, 1, -300)); // 0
+        System.out.println(findTargetSumWays(new int[]{200}, 1, -100)); // 0
     }
 
-    static int findTargetSumWays(int[] arr, int n, int target) {
+    private static int findTargetSumWays(int[] arr, int n, int target) {
 
+        // find sum
         int sum = 0;
         for (int val : arr) {
             sum += val;
         }
+
+        // if array contains zeroes, then handle them separately.
+        int zeroCount = countZeroes(arr, n);
+        arr = removeZeroes(arr, n, zeroCount);
+        int possibilitiesWithZeroes = (int) Math.pow(2, zeroCount);
+
+        target = Math.abs(target);  // target can be in -ve also.
 
         int s1 = (sum + target) / 2;
 
@@ -47,15 +61,10 @@ public class _494_TargetSum {
             return 0;
         }
 
-        return count(arr, n, s1);
+        return count(arr, arr.length, s1) * possibilitiesWithZeroes;
     }
 
-    static int count(int[] arr, int n, int sum) {
-
-        int zeroCount = countZeroes(arr, n);
-
-        arr = removeZeroes(arr, n, zeroCount);
-        n = arr.length;
+    private static int count(int[] arr, int n, int sum) {
 
         int[][] dp = new int[n + 1][sum + 1];
 
@@ -84,7 +93,7 @@ public class _494_TargetSum {
             }
         }
 
-        return dp[n][sum] * (int) Math.pow(2, zeroCount);
+        return dp[n][sum];
     }
 
     private static int countZeroes(int[] arr, int n) {
