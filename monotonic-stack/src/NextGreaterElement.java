@@ -16,6 +16,12 @@ public class NextGreaterElement {
       System.out.print(element + " ");  // 12 -1 6 5 2 5 6 4 2 4 6 -1
     }
     System.out.println();
+
+    long[] elements3 = nextLargerElement(new long[]{3, 8, 4, 1, 2});
+    for (long element : elements3) {
+      System.out.print(element + " ");  // 8 -1 -1 2 -1
+    }
+    System.out.println();
   }
 
   /**
