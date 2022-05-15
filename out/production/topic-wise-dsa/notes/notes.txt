@@ -8,3 +8,10 @@
 8. count the number of subset with a given difference
 9. target sum
 -------------
+10.
+11.
+12.
+13.
+14.
+15.
+16. Coin change problem: Minimum number of coins - https://practice.geeksforgeeks.org/problems/min-coin5549/1
