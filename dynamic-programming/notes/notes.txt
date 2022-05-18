@@ -15,5 +15,9 @@
 14.
 15.
 16. Coin change problem: Minimum number of coins - https://practice.geeksforgeeks.org/problems/min-coin5549/1
+------------
 19. LCS Recursive : https://leetcode.com/problems/longest-common-subsequence/
-
+20.
+21.
+22. Longest Common Substring : https://leetcode.com/problems/maximum-length-of-repeated-subarray/ , https://practice.geeksforgeeks.org/problems/longest-common-substring1452/1/
+23.
