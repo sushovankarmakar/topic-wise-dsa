@@ -4,6 +4,12 @@ package src;
  * https://leetcode.com/problems/unique-paths-ii/
  * https://www.youtube.com/watch?v=YcrXBDAeTCs&ab_channel=AndreyGrehov
  * https://github.com/andreygrehov/dp/tree/master/lecture9
+ *
+ * https://www.geeksforgeeks.org/unique-paths-in-a-grid-with-obstacles/
+ *
+ * 1. recursive.
+ * 2. memoization top down DP.
+ * 3. bottom up DP.
  */
 
 /*
