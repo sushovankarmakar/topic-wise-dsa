@@ -3,12 +3,14 @@ package src;
 /**
  * https://practice.geeksforgeeks.org/problems/min-coin5549/1
  * https://practice.geeksforgeeks.org/problems/number-of-coins1824/1/
- *
+ * <p>
  * https://www.youtube.com/watch?v=I-l6PBeERuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16&t=15s&ab_channel=AdityaVerma
  * https://www.youtube.com/watch?v=rMfOgY07TFs&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=17&ab_channel=AdityaVerma
- *
+ * <p>
  * https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
- *
+ * https://www.educative.io/edpresso/minimum-coin-change-in-cpp---a-dynamic-programming-question
+ * https://www.techiedelight.com/coin-change-making-problem-unlimited-supply-coins/
+ * <p>
  * (1D Array Solution)
  * https://github.com/sushovankarmakar/topic-wise-dsa/blob/master/dynamic-programming/src/CoinChange_MinNumberOfCoins_322.java
  */
@@ -21,6 +23,7 @@ public class _322_MinCoinChange {
         System.out.println(minCoin(new int[]{9, 6, 5, 1}, 11)); // 2
         System.out.println(minCoin(new int[]{2}, 3)); // -1
         System.out.println(minCoin(new int[]{1}, 0)); // 0
+        System.out.println(minCoin(new int[]{411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422}, 9864)); // 24
     }
 
     /**
@@ -31,6 +34,7 @@ public class _322_MinCoinChange {
      * (dp[i][j-a[i-1]]+1) ==> this part become INT_MIN if case is not valid
      * and min(INT_MIN, INT_MAX) = INT_MIN which affects our answer.
      */
+    // similar to unbounded knapsack code and choice diagram
     private static int minCoin(int[] coins, int amount) {
 
         int len = coins.length;
