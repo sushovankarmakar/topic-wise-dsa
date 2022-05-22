@@ -2,6 +2,8 @@ package src;
 
 /**
  * https://www.geeksforgeeks.org/printing-longest-common-subsequence/
+ *
+ * https://leetcode.com/problems/shortest-common-supersequence/discuss/312710/C++Python-Find-the-LCS/290904 (We can follow this too to find out the answer in a single function call)
  */
 public class LongestCommonSubsequence_Print {
 

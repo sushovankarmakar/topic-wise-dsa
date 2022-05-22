@@ -21,4 +21,4 @@
 21.
 22. Longest Common Substring : https://leetcode.com/problems/maximum-length-of-repeated-subarray/ , https://practice.geeksforgeeks.org/problems/longest-common-substring1452/1/
 23. Printing Longest common subsequence : https://www.geeksforgeeks.org/printing-longest-common-subsequence/
-24.
+24. Shortest Common Supersequence : https://leetcode.com/problems/shortest-common-supersequence/, https://practice.geeksforgeeks.org/problems/shortest-common-supersequence0322/1/
