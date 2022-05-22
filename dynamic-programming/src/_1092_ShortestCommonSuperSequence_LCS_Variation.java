@@ -8,7 +8,7 @@ package src;
  * <p>
  * https://leetcode.com/problems/shortest-common-supersequence/discuss/312710/C++Python-Find-the-LCS/290904 (Followed this)
  */
-public class _1092_ShortestCommonSuperSequence {
+public class _1092_ShortestCommonSuperSequence_LCS_Variation {
 
     public static void main(String[] args) {
         System.out.println(shortestCommonSuperSequence("abac", "cab")); // cabac
@@ -17,13 +17,13 @@ public class _1092_ShortestCommonSuperSequence {
 
     /**
      * Approach 1 : (1 step)
-     *  1. find length of lcs and the dp array.
-     *  2. find the lcs string using that dp array.
-     *  3. then find the shortest common super sequence using str1, str2, lcs.
-     *
+     * 1. find length of lcs and the dp array.
+     * 2. find the lcs string using that dp array.
+     * 3. then find the shortest common super sequence using str1, str2, lcs.
+     * <p>
      * Approach 2 : (2 step)
-     *  1. directly find the lcs string.
-     *  2. then find the shortest common super sequence using str1, str2, lcs.
+     * 1. directly find the lcs string.
+     * 2. then find the shortest common super sequence using str1, str2, lcs.
      */
     private static String shortestCommonSuperSequence(String str1, String str2) {
 
