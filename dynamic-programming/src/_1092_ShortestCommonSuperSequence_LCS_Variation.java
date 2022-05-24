@@ -5,6 +5,9 @@ package src;
  * https://leetcode.com/problems/shortest-common-supersequence/
  * <p>
  * https://www.youtube.com/watch?v=823Grn4_dCQ&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=25&ab_channel=AdityaVerma
+ *
+ * https://www.geeksforgeeks.org/print-shortest-common-supersequence/ (Similar to printing LCS)
+ * https://www.youtube.com/watch?v=VDhRg-ZJTuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=30&ab_channel=AdityaVerma (Easy to remember)
  * <p>
  * https://leetcode.com/problems/shortest-common-supersequence/discuss/312710/C++Python-Find-the-LCS/290904 (Followed this)
  */
@@ -12,7 +15,8 @@ public class _1092_ShortestCommonSuperSequence_LCS_Variation {
 
     public static void main(String[] args) {
         System.out.println(shortestCommonSuperSequence("abac", "cab")); // cabac
-        // System.out.println(shortestCommonSuperSequence("aaaaaaaa", "aaaaaaaa")); // aaaaaaaa
+        System.out.println(shortestCommonSuperSequence("aaaaaaaa", "aaaaaaaa")); // aaaaaaaa
+        System.out.println(shortestCommonSuperSequence("abcdaf", "acbcf")); // acbcdaf
     }
 
     /**
@@ -30,11 +34,17 @@ public class _1092_ShortestCommonSuperSequence_LCS_Variation {
         // APPROACH 1
         // int[][] dp = getLengthOfLCS(str1, str2);
         // String lcs = getLCS(str1, str2, dp);
+        // return getSCS(str1, str2, lcs);
 
         // APPROACH 2 : https://leetcode.com/problems/shortest-common-supersequence/discuss/312710/C++Python-Find-the-LCS/290904
-        String lcs = getLCS(str1, str2);
+        // String lcs = getLCS(str1, str2);
+        // return getSCS(str1, str2, lcs);
 
-        return getSCS(str1, str2, lcs);
+        // easy to remember approach : similar to printing lcs printing.
+        // APPROACH 3 : https://www.youtube.com/watch?v=VDhRg-ZJTuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=30&ab_channel=AdityaVerma
+        // https://www.geeksforgeeks.org/print-shortest-common-supersequence/
+        int[][] dp = getLengthOfLCS(str1, str2);
+        return getSCS_1(str1, str2, dp);
     }
 
     private static int[][] getLengthOfLCS(String str1, String str2) {
@@ -62,6 +72,48 @@ public class _1092_ShortestCommonSuperSequence_LCS_Variation {
             }
         }
         return dp;
+    }
+
+    // code is very similar to 'print lcs'
+    private static String getSCS_1(String str1, String str2, int[][] dp) {
+
+        StringBuilder scs = new StringBuilder();
+
+        int i = str1.length();
+        int j = str2.length();
+
+        while (i > 0 && j > 0) {
+
+            if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+                scs.append(str1.charAt(i - 1));
+
+                i--;
+                j--;
+            } else {
+
+                if (dp[i][j - 1] > dp[i - 1][j]) {
+                    scs.append(str2.charAt(j - 1)); // extra line added to make scs
+                    j--;
+                } else {
+                    scs.append(str1.charAt(i - 1)); // extra line added to make scs
+                    i--;
+                }
+            }
+        }
+
+        // extra code added to make scs
+        while (i > 0) {
+            scs.append(str1.charAt(i - 1));
+            i--;
+        }
+
+        // extra line added to make scs
+        while (j > 0) {
+            scs.append(str2.charAt(j - 1));
+            j--;
+        }
+
+        return scs.reverse().toString();
     }
 
     private static String getLCS(String str1, String str2, int[][] dp) {
