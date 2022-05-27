@@ -4,6 +4,7 @@ package src;
  * https://practice.geeksforgeeks.org/problems/check-for-subsequence4930/1/
  * https://leetcode.com/problems/is-subsequence/
  *
+ * https://www.geeksforgeeks.org/given-two-strings-find-first-string-subsequence-second/
  * https://www.youtube.com/watch?v=QVntmksK2es&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=30&t=8s&ab_channel=AdityaVerma (LCS Variation)
  */
 public class _392_IsSubsequence_LCS_Variation {
