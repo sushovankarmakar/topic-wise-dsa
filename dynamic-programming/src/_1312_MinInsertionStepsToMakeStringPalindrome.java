@@ -1,10 +1,15 @@
 package src;
 
 /**
- * https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions4610/1/
- * https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/
+ * https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions4610/1/ (deletion)
+ * https://practice.geeksforgeeks.org/problems/minimum-deletitions1648/1/ (deletion)
+ *
+ * https://practice.geeksforgeeks.org/problems/form-a-palindrome1455/1/ (insertion)
+ *
+ * https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/ (insertion)
  * <p>
- * https://www.youtube.com/watch?v=CFwCCNbRuLY&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=27&ab_channel=AdityaVerma
+ * https://www.youtube.com/watch?v=CFwCCNbRuLY&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=27&ab_channel=AdityaVerma (Min number of deletion)
+ * https://www.youtube.com/watch?v=AEcRW4ylm_c&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=32&ab_channel=AdityaVerma (Min number of insertion)
  */
 public class _1312_MinInsertionStepsToMakeStringPalindrome {
 
@@ -18,7 +23,7 @@ public class _1312_MinInsertionStepsToMakeStringPalindrome {
 
     /**
      * 1. Find x = LCS ( str , reverse Str)
-     * 2. minimum number of deletion required = len(str) - X
+     * 2. minimum number of insertion / deletion required = len(str) - x
      */
     private static int minInsertions(String s) {
         return s.length() - longestPalindromicSubSequence(s);
