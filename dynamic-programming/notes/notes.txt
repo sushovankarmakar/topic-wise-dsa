@@ -27,4 +27,5 @@
 28. Minimum number of deletion in a string to make it a palindrome : https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions4610/1/ , https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/
 29. Longest repeating subsequence : https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence2004/1
 30. Given two strings A and B, find if A is a subsequence of B : https://practice.geeksforgeeks.org/problems/check-for-subsequence4930/1/ , https://leetcode.com/problems/is-subsequence/
-31.
+
+Find number of times a string occurs as a subsequence in given string : https://www.geeksforgeeks.org/find-number-times-string-occurs-given-string/
