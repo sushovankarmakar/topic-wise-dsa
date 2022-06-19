@@ -2,10 +2,13 @@ package src;
 
 /**
  * https://leetcode.com/problems/longest-palindromic-substring/
- *
+ * https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string3411/1/
+ * https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string1956/1/
+ * <p>
  * https://www.youtube.com/watch?v=Msghl9189X4 (Helpful to understand the logic)
  * https://leetcode.com/problems/longest-palindromic-substring/discuss/1056859/recursion-a-few-dp-variants (I followed this recursive approach)
  */
+
 /**
  * Amazon, Microsoft, Google, Adobe, Apple, Facebook, Goldman Sachs, Oracle,
  * Yahoo, Bloomberg, Visa, tiktok, Uber, Walmart, ByteDance, PayTM
@@ -13,7 +16,7 @@ package src;
 public class _5_LongestPalindromicSubstring_Recursive {
 
     /**
-     * WHAT MISTAKE I DID :
+     * WHAT MISTAKE I DID : ( mentioned in leetcode tutorial and https://www.geeksforgeeks.org/longest-palindrome-substring-set-1/)
      * Longest Common Substring :
      * Reverse of S become S'
      * Find the longest common substring between S and S' which must also be the longest palindromic substring.

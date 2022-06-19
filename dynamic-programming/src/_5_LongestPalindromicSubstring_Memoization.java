@@ -2,7 +2,9 @@ package src;
 
 /**
  * https://leetcode.com/problems/longest-palindromic-substring/
- *
+ * https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string3411/1/
+ * https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string1956/1/
+ * <p>
  * https://www.youtube.com/watch?v=Msghl9189X4 (Helpful to understand the logic)
  * https://leetcode.com/problems/longest-palindromic-substring/discuss/1056859/recursion-a-few-dp-variants (I followed this memoization approach)
  */
@@ -43,7 +45,7 @@ public class _5_LongestPalindromicSubstring_Memoization {
             }
         }
 
-        String left  = lps(input, start + 1, end, dp);
+        String left = lps(input, start + 1, end, dp);
         String right = lps(input, start, end - 1, dp);
 
         return dp[start][end] = (left.length() > right.length() ? left : right);
