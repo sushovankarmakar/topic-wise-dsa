@@ -5,8 +5,10 @@ package src;
  * https://practice.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1/
  * <p>
  * https://www.youtube.com/watch?v=_gPcYovP7wc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=8&ab_channel=AdityaVerma
+ *
+ * https://practice.geeksforgeeks.org/problems/b6b608d4eb1c45f2b5cace77c4914f302ff0f80d/1/ (Similar concept wise question)
  */
-public class SubsetSumProblem {
+public class SubsetSumProblem_BottomUp {
 
     public static void main(String[] args) {
         int[] arr1 = {3, 34, 4, 12, 5, 2};
