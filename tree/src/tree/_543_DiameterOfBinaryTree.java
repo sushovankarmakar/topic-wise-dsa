@@ -2,6 +2,7 @@ package tree;
 
 /**
  * https://leetcode.com/problems/diameter-of-binary-tree/
+ * https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1
  * <p>
  * https://www.youtube.com/watch?v=zmPj_Ee3B8c&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go (Aditya Verma)
  */
