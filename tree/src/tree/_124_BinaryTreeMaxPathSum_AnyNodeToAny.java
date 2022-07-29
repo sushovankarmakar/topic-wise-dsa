@@ -3,13 +3,13 @@ package tree;
 /**
  * https://practice.geeksforgeeks.org/problems/maximum-path-sum-from-any-node/1
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/
- *
+ * <p>
  * https://www.youtube.com/watch?v=Osz-Vwer6rw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go
- *
+ * <p>
  * https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/discuss/39775/Accepted-short-solution-in-Java
  */
-public class _124_BinaryTreeMaxPathSum {
+public class _124_BinaryTreeMaxPathSum_AnyNodeToAny {
 
     public int maxPathSum(TreeNode root) {
 
@@ -38,14 +38,6 @@ public class _124_BinaryTreeMaxPathSum {
 
         int currHeightMaxSum = Math.max(root.val + Math.max(leftHeightSum, rightHeightSum), root.val); // case 1, 2, 3
         int currDiameterSum = root.val + leftHeightSum + rightHeightSum;    // case 4
-
-        /*if (root.val >= 0) {
-            currDiameterSum = root.val + leftHeightSum + rightHeightSum;
-            currHeightMaxSum = root.val + Math.max(leftHeightSum, rightHeightSum);
-        } else {
-            currHeightMaxSum = Math.max(leftHeightSum, rightHeightSum);
-            currDiameterSum = currHeightMaxSum;
-        }*/
 
         maxSum[0] = Math.max(maxSum[0], Math.max(currDiameterSum, currHeightMaxSum));   // taking the max out of all 4
 
