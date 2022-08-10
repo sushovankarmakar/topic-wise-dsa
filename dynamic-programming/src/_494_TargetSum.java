@@ -38,6 +38,12 @@ public class _494_TargetSum {
         System.out.println(findTargetSumWays(new int[]{200}, 1, -100)); // 0
     }
 
+    /**
+     * target sum problem
+     *  = count the number of subset with a given difference : CountTheNumberOfSubsetWithGivenDiff
+     *  = count the number of subset with a given sum
+     *  = subset sum problem
+     */
     private static int findTargetSumWays(int[] arr, int n, int target) {
 
         // find sum

@@ -1,6 +1,7 @@
 package src;
 
 /**
+ * https://practice.geeksforgeeks.org/problems/perfect-sum-problem5633/1
  * https://www.youtube.com/watch?v=ot_XBHyqpFc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=12&ab_channel=AdityaVerma
  */
 public class CountTheNumberOfSubsetWithGivenDiff {
@@ -19,11 +20,14 @@ public class CountTheNumberOfSubsetWithGivenDiff {
         System.out.println(perfectSum(new int[]{8, 1}, 2, 21));     // 0
         System.out.println(perfectSum(new int[]{1}, 1, 4));         // 0
         System.out.println(perfectSum(new int[]{6, 8, 0}, 3, 9));   // 0
+
+        System.out.println(perfectSum(new int[]{1, 2, 3}, 3, 1));   // 2
+        System.out.println(perfectSum(new int[]{1, 1, 2, 3}, 4, 1));   // 3  ( here we have more than one 1)
     }
 
     /**
      * the input array may contain zero also.
-     *
+     * <p>
      * this problem is very similar to CountOfSubsetsSumWithAGivenSum_WithZeros
      * https://practice.geeksforgeeks.org/problems/perfect-sum-problem5633/1
      */

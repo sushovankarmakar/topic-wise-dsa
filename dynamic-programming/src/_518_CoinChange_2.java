@@ -2,7 +2,8 @@ package src;
 
 /**
  * https://www.youtube.com/watch?v=I4UR2T6Ro3w&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16&t=53s&ab_channel=AdityaVerma
- * https://practice.geeksforgeeks.org/problems/coin-change2448/1#
+ * https://practice.geeksforgeeks.org/problems/coin-change2448/1
+ * https://leetcode.com/problems/coin-change-2/
  */
 public class _518_CoinChange_2 {
 

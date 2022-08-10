@@ -1,9 +1,10 @@
 package src;
 
 /**
- * https://practice.geeksforgeeks.org/problems/minimum-sum-partition3317/1/
+ * https://practice.geeksforgeeks.org/problems/minimum-sum-partition3317/1/ (No negative values)
+ * https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/ (With negative values)
  * https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/
- *
+ * <p>
  * https://www.youtube.com/watch?v=-GtpxG6l_Mc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=10&ab_channel=AdityaVerma
  */
 public class MinimumSubsetSumDifference {
@@ -12,6 +13,7 @@ public class MinimumSubsetSumDifference {
         System.out.println(minDifference(new int[]{1, 6, 11, 5}, 4));   // 1
         System.out.println(minDifference(new int[]{1, 4}, 2));          // 3
         System.out.println(minDifference(new int[]{1, 2, 7}, 3));       // 4
+        System.out.println(minDifference(new int[]{3, 9, 7, 3}, 4));       // 2
     }
 
     public static int minDifference(int[] arr, int n) {
