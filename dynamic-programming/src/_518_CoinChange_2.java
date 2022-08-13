@@ -9,7 +9,7 @@ public class _518_CoinChange_2 {
 
     /**
      * coin change : how many ways to we can get the amount using given coins.
-     *
+     * <p>
      * coins are unlimited.
      */
     public static void main(String[] args) {
@@ -18,6 +18,7 @@ public class _518_CoinChange_2 {
         System.out.println(findNumOfWaysToChangeTheAmount(new int[]{10}, 10));          // 1
         System.out.println(findNumOfWaysToChangeTheAmount(new int[]{1, 2, 3}, 4));      // 4
         System.out.println(findNumOfWaysToChangeTheAmount(new int[]{2, 5, 3, 6}, 10));  // 5
+        System.out.println(findNumOfWaysToChangeTheAmount(new int[]{1, 2, 3}, 4));      // 4
     }
 
     /**

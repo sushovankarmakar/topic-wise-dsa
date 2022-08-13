@@ -1,6 +1,9 @@
 package src;
 
 /**
+ * https://practice.geeksforgeeks.org/problems/count-number-of-hops-1587115620/1
+ * https://www.geeksforgeeks.org/count-number-of-ways-to-cover-a-distance/
+ * <p>
  * https://www.geeksforgeeks.org/coin-change-dp-7/
  * <p>
  * https://www.youtube.com/watch?v=IqAdhHpRu3Y&t=34s&ab_channel=AndreyGrehov (I followed this)
@@ -20,7 +23,7 @@ Problem:
 	f(n) = f(n - d_1) + f(n - d_2) + f(n - d_3) + ... + f(n - d_k);
 	where d_1, d_2, d_3, ..., d_k are provided coin denominations.
 */
-public class CoinChange_OrderDoesNotMatter {
+public class CoinChange_OrderOfCoinDoesNotMatter_WithAllPermutation {
 
     public static void main(String[] args) {
 

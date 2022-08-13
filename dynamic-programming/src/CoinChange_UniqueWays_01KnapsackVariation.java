@@ -3,6 +3,11 @@ package src;
 /**
  * https://www.youtube.com/watch?v=g0VjciqYeDU&t=1079s&ab_channel=AndreyGrehov
  * https://github.com/andreygrehov/dp/tree/master/lecture15
+ * <p>
+ * https://www.youtube.com/watch?v=I4UR2T6Ro3w&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16&t=53s&ab_channel=AdityaVerma
+ * https://practice.geeksforgeeks.org/problems/coin-change2448/1
+ * https://leetcode.com/problems/coin-change-2/
+ * https://www.techiedelight.com/coin-change-problem-find-total-number-ways-get-denomination-coins/ (Coin change all variations)
  */
 /*
 Problem:
@@ -20,7 +25,7 @@ Problem:
 	i >= 3: f[i][3] = f[i-1][1] + f[i-2][2] + f[i-3][3]
 	i >= 5: f[i][5] = f[i-1][1] + f[i-2][2] + f[i-3][3] + f[i-5][5]
 */
-public class CoinChange_UniqueWays {
+public class CoinChange_UniqueWays_01KnapsackVariation {
 
     public static void main(String[] args) {
         int[] denominations1 = {1, 2, 3, 5};
@@ -36,6 +41,7 @@ public class CoinChange_UniqueWays {
         // 3 [1, 2, 3, 3]
         // 4 [1, 3, 4, 4]
 
+        System.out.println(count_uniqueWays(new int[]{1, 2, 3}, 4));
     }
 
     // here we're asking question :
@@ -67,7 +73,7 @@ public class CoinChange_UniqueWays {
      * \----- 0
      *    (3)
      */
-    // APPROACH - 2 : this is reverse of CoinChange_OrderDoesNotMatter algorithm.
+    // APPROACH - 2 : this is reverse of CoinChange_OrderOfCoinDoesNotMatter_WithAllPermutation algorithm.
     private static int count_uniqueWays(int[] denominations, int change) {
 
         // here we're asking question :
