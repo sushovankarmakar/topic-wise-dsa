@@ -8,7 +8,7 @@ package src;
  * <p>
  * https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
  */
-public class LongestCommonSubsequence_BottomUp {
+public class _1143_LongestCommonSubsequence_BottomUp {
 
     public static void main(String[] args) {
         System.out.println(longestCommonSubsequence("abcde", "ace"));   // 3
