@@ -1,13 +1,15 @@
 package src;
 
 /**
- * https://www.youtube.com/watch?v=g0VjciqYeDU&t=1079s&ab_channel=AndreyGrehov
+ * https://www.youtube.com/watch?v=g0VjciqYeDU&t=1079s&ab_channel=AndreyGrehov - Used Transition Function
  * https://github.com/andreygrehov/dp/tree/master/lecture15
  * <p>
- * https://www.youtube.com/watch?v=I4UR2T6Ro3w&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16&t=53s&ab_channel=AdityaVerma
+ * https://www.youtube.com/watch?v=I4UR2T6Ro3w&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16&t=53s&ab_channel=AdityaVerma - Used unbounded knapsack pattern
  * https://practice.geeksforgeeks.org/problems/coin-change2448/1
  * https://leetcode.com/problems/coin-change-2/
  * https://www.techiedelight.com/coin-change-problem-find-total-number-ways-get-denomination-coins/ (Coin change all variations)
+ * <p>
+ * https://www.youtube.com/watch?v=jaNZ83Q3QGc (Stephen O'Neill) - Used Transition Function - Good animation.
  */
 /*
 Problem:
@@ -25,8 +27,13 @@ Problem:
 	i >= 3: f[i][3] = f[i-1][1] + f[i-2][2] + f[i-3][3]
 	i >= 5: f[i][5] = f[i-1][1] + f[i-2][2] + f[i-3][3] + f[i-5][5]
 */
-public class CoinChange_UniqueWays_01KnapsackVariation {
+public class CoinChange_UniqueWays_UnboundedKnapsackVariation {
 
+    /**
+     * This problem can be solved using two ways :
+     * 1. Using Transition Function.  (Follow Andrey Grehov.)
+     * 2. Using Unbounded Knapsack pattern. (Follow Aditya Verma.)
+     */
     public static void main(String[] args) {
         int[] denominations1 = {1, 2, 3, 5};
         int change1 = 4;
@@ -41,7 +48,11 @@ public class CoinChange_UniqueWays_01KnapsackVariation {
         // 3 [1, 2, 3, 3]
         // 4 [1, 3, 4, 4]
 
-        System.out.println(count_uniqueWays(new int[]{1, 2, 3}, 4));
+        System.out.println(count_uniqueWays(new int[]{1, 2, 3}, 4));    // 4
+        System.out.println(count_uniqueWays(new int[]{1, 2, 5}, 12));   // 13
+
+        System.out.println(count_uniqueWays_usingUnboundedKnapsack(new int[]{1, 2, 3}, 4));    // 4
+        System.out.println(count_uniqueWays_usingUnboundedKnapsack(new int[]{1, 2, 5}, 12));   // 13
     }
 
     // here we're asking question :
@@ -136,6 +147,39 @@ public class CoinChange_UniqueWays_01KnapsackVariation {
         }
 
         return dp[change][n - 1];
+    }
+
+    private static int count_uniqueWays_usingUnboundedKnapsack(int[] denominations, int change) {
+
+        int n = denominations.length;
+
+        int[][] dp = new int[n + 1][change + 1];
+
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= change; j++) {
+
+                if (j == 0) {
+                    dp[i][j] = 1;
+                    continue;
+                }
+
+                if (i == 0) {
+                    dp[i][j] = 0;
+                    continue;
+                }
+
+                if (denominations[i - 1] <= j) {
+
+                    dp[i][j] = dp[i][j - denominations[i - 1]]
+                            + dp[i - 1][j];
+
+                } else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+
+        return dp[n][change];
     }
 
 }

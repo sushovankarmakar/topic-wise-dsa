@@ -12,6 +12,7 @@ package src;
  * https://www.geeksforgeeks.org/understanding-the-coin-change-problem-with-dynamic-programming/ (A very good post)
  * <p>
  * https://www.techiedelight.com/coin-change-problem-find-total-number-ways-get-denomination-coins/ (Coin change all variations)
+ * https://www.geeksforgeeks.org/understanding-the-coin-change-problem-with-dynamic-programming/
  */
 /*
 Problem:
@@ -42,6 +43,8 @@ public class CoinChange_OrderOfCoinDoesNotMatter_WithAllPermutation {
         int[] denominations4 = {1, 2, 3};
         int change4 = 4;
         System.out.println(count(denominations4, change4)); // 7
+
+        System.out.println(count(new int[]{1, 2, 5}, 12));   // 372
     }
 
     /**
