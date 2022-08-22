@@ -6,11 +6,18 @@ import java.util.Map;
 /**
  * https://practice.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1
  * https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
- * https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
+ * <p>
+ * Below two questions are exactly. Only question description is different.
+ * https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/ - here k is not given. because k = 2;
+ * https://leetcode.com/problems/fruit-into-baskets/  - longest-substring-with-at-most-two-distinct-characters
  * <p>
  * https://www.youtube.com/watch?v=Lav6St0W_pQ&ab_channel=AdityaVerma
+ * https://www.youtube.com/watch?v=seOKHXB_w74 (Aditya Verma) -
+ * 904. Fruit Into Baskets : What is the length of the longest sub array that contains up to two distinct integers ?
+ * <p>
+ * https://leetcode.com/problems/fruit-into-baskets/discuss/170740/JavaC%2B%2BPython-Sliding-Window-for-K-Elements
  */
-public class _159_340_LongestSubStringWithKUniqueChar {
+public class _159_340_904_LongestSubStringWithKUniqueChar {
 
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstringKDistinct("aaaa", 2));   // 4
@@ -33,7 +40,6 @@ public class _159_340_LongestSubStringWithKUniqueChar {
          */
         Map<Character, Integer> map = new HashMap<>();
 
-
         int left = 0;
         int right = 0;
         int n = s.length();
@@ -46,8 +52,13 @@ public class _159_340_LongestSubStringWithKUniqueChar {
 
             if (map.size() < k) {
 
+                /**
+                 * we need this maxLen here also because in LC, question asked 'at most'.
+                 *
+                 * BUT as per GFG, if 'exactly' K unique chars, then we only need to calculate when map.size() == k.
+                 */
                 int currLen = right - left + 1;
-                maxLen = Math.max(maxLen, currLen); // as per GFG, if exactly K unique chars, then we need to remove this line.
+                maxLen = Math.max(maxLen, currLen);
 
                 right++;
             } else if (map.size() == k) {
