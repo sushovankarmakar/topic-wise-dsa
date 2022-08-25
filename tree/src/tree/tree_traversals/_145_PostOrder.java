@@ -19,7 +19,7 @@ import java.util.Stack;
  * <p>
  * https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45648/3-ways-of-iterative-postorder-traversing-morris-traversal
  */
-public class _145_PostOrder {
+public class _145_PostOrder { // left - right - root
 
     private static List<Integer> postOrderIterative(TreeNode root) {
 

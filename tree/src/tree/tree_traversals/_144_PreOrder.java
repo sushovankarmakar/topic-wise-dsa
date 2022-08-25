@@ -26,7 +26,7 @@ import static tree.TreeNode.buildTree;
  * <p>
  * https://leetcode.com/problems/binary-tree-preorder-traversal/discuss/45312/three-ways-of-iterative-preorder-traversing-easy-explanation
  */
-public class _144_PreOrder {
+public class _144_PreOrder { // root - left - right
 
     public static void main(String[] args) {
         TreeNode root1 = buildTree("1 4 N 4 2 ");
@@ -54,6 +54,12 @@ public class _144_PreOrder {
             root = stack.pop();
             list.add(root.val);
 
+            /**
+             * below two if conditions' sequence is very important.
+             * we first put right node at stack and then left node.
+             *
+             * so when popping out we'll get left node first and then right node
+             */
             if (root.right != null) {
                 stack.push(root.right);
             }

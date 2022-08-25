@@ -19,7 +19,7 @@ import java.util.Stack;
  * <p>
  * https://leetcode.com/problems/binary-tree-inorder-traversal/discuss/31313/three-ways-of-iterative-inorder-traversing-easy-explanation
  */
-public class _94_InOrder {
+public class _94_InOrder { // left - root - right
 
     /**
      * iterative solution approach :
@@ -44,15 +44,15 @@ public class _94_InOrder {
 
         Stack<TreeNode> stack = new Stack<>();
 
-        while (!stack.isEmpty() || root != null) {
+        while (!stack.isEmpty() || root != null) { /* when currNode is null and stack is also empty, then traversing is complete */
 
-            if (root != null) {
+            if (root != null) {     /* until currNode is null, push that node to stack and go deeper in left side */
                 stack.push(root);
                 root = root.left;
-            } else {
+            } else {                /* at this point, currNode must be null */
                 root = stack.pop();
                 list.add(root.val);
-                root = root.right;
+                root = root.right;  /* we have visited the node and its left subtree.  Now, it's right subtree's turn */
             }
         }
         return list;
