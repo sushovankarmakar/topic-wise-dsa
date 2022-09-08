@@ -16,6 +16,9 @@ import static tree.TreeNode.buildTree;
  * https://github.com/sushovankarmakar/GeeksforGeeks/blob/master/2.%20Easy/src/Tree_LevelOrderTraversal.java
  * <p>
  * https://www.youtube.com/watch?v=EoAsWbO7sqg (Striver)
+ * <p>
+ * Similar question
+ * https://leetcode.com/problems/average-of-levels-in-binary-tree/
  */
 public class _102_LevelOrderTraversal {
 
