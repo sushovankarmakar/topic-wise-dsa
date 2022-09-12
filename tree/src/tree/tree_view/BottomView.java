@@ -1,4 +1,4 @@
-package tree.tree_traversals;
+package tree.tree_view;
 
 import tree.TreeNode;
 
