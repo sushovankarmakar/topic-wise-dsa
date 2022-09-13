@@ -6,7 +6,7 @@ import tree.TreeNode;
  * https://leetcode.com/problems/same-tree/
  * https://practice.geeksforgeeks.org/problems/determine-if-two-trees-are-identical/1
  * <p>
- * https://www.youtube.com/watch?v=BhuvF_-PWS0
+ * https://www.youtube.com/watch?v=BhuvF_-PWS0 (Striver)
  */
 public class _100_IsTwoTreesAreIdentical {
 

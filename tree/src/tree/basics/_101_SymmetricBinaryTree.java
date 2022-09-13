@@ -1,4 +1,6 @@
-package tree;
+package tree.basics;
+
+import tree.TreeNode;
 
 /**
  * https://leetcode.com/problems/symmetric-tree/
