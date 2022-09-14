@@ -64,7 +64,7 @@ public class PrintPathFromRootToAllLeafNodes {
 
         // IMPORTANT to keep the remove operation at last after visiting both the children.
         // MISTAKE : I kept remove operation after visiting left child only.
-        path.remove(path.size() - 1);   // while going back remove, last element from arrayList
+        path.remove(path.size() - 1);   // while going back, remove last element from arrayList
     }
 
     /**

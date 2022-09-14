@@ -19,24 +19,24 @@ public class PrintPathFromRootToGivenNode {
 
     public static void main(String[] args) {
         TreeNode root1 = TreeNode.buildTree("10 20 30 40 60 N N");
-        System.out.println(getPaths(root1, 60));    // [10, 20, 60]
+        System.out.println(getTargetPath(root1, 60));    // [10, 20, 60]
 
         TreeNode root2 = TreeNode.buildTree("1 2 3 4 5 6 7");
-        System.out.println(getPaths(root2, 5));    // [1, 2, 5]
+        System.out.println(getTargetPath(root2, 5));    // [1, 2, 5]
     }
 
     private static List<Integer> targetPath;
 
-    private static List<Integer> getPaths(TreeNode root, int target) {
+    private static List<Integer> getTargetPath(TreeNode root, int target) {
         targetPath = new ArrayList<>();
-        findPaths(root, new ArrayList<>(), target);
+        findPath(root, new ArrayList<>(), target);
         return targetPath;
     }
 
     /**
      * PreOrder traversal : root, left, right
      */
-    private static void findPaths(TreeNode root, List<Integer> path, int target) {
+    private static void findPath(TreeNode root, List<Integer> path, int target) {
 
         if (root == null) return;
 
@@ -48,8 +48,8 @@ public class PrintPathFromRootToGivenNode {
             // IMPORTANT : Don't add Return statement here.
         }
 
-        findPaths(root.left, path, target);
-        findPaths(root.right, path, target);
+        findPath(root.left, path, target);
+        findPath(root.right, path, target);
 
         // IMPORTANT to keep the remove operation at last after visiting both the children.
         // MISTAKE : I kept remove operation after visiting left child only.
