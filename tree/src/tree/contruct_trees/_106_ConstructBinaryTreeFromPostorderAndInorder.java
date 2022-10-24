@@ -7,7 +7,9 @@ import java.util.Map;
 
 /**
  * https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
- * https://www.youtube.com/watch?v=LgLRTaEMRVc
+ * https://practice.geeksforgeeks.org/problems/tree-from-postorder-and-inorder/1
+ * <p>
+ * https://www.youtube.com/watch?v=LgLRTaEMRVc (Striver : best)
  */
 public class _106_ConstructBinaryTreeFromPostorderAndInorder {
 
