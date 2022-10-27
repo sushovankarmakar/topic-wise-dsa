@@ -1,0 +1,4 @@
+practice in this order :
+1. preorder : recursive, iterative
+2. postorder: recursive, iterative
+3. inorder  : recursive, iterative
