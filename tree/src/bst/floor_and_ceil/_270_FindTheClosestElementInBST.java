@@ -43,12 +43,12 @@ public class _270_FindTheClosestElementInBST {
             }
 
             if (target < root.val) {
-                ceil = root.val;   // as of now, this is the nearest bigger value I've seen.
+                ceil = root.val;   // as of now, this is the nearest bigger value I've seen. so this is a possible candidate for ceil.
                 root = root.left;   // let's explore more on the left subtree, because on the right, I'll get only bigger values which is useless for me.
 
             } else {    // root.data < target
 
-                floor = root.val;  // as of now, this is the nearest smaller value I've seen.
+                floor = root.val;  // as of now, this is the nearest smaller value I've seen. so this is a possible candidate for floor.
                 root = root.right;  // let's explore more on the right subtree, because on the left, I'll get only smaller values which is useless for me.
             }
         }
