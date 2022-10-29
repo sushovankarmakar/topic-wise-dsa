@@ -1,4 +1,6 @@
-package bst;
+package bst.basic_operations;
+
+import bst.TreeNode;
 
 /**
  * https://leetcode.com/problems/search-in-a-binary-search-tree/
