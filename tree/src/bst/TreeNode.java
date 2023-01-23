@@ -92,7 +92,7 @@ public class TreeNode {
         return root;
     }
 
-    static void printInorder(TreeNode root) {
+    public static void printInorder(TreeNode root) {
         if (root == null)
             return;
 

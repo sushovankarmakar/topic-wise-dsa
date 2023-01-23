@@ -102,4 +102,27 @@ public class TreeNode {
         printInorder(root.right);
     }
 
+    public static void printLevelOrder(TreeNode root) {
+        if (root == null)
+            return;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+
+            int queueSize = queue.size();
+            for (int i = 0; i < queueSize; i++) {
+                TreeNode currNode = queue.poll();
+
+                System.out.print(currNode.val + " ");
+
+                if (currNode.left != null) queue.add(currNode.left);
+                if (currNode.right != null) queue.add(currNode.right);
+            }
+            System.out.println();
+        }
+        System.out.print("---");
+    }
+
 }
