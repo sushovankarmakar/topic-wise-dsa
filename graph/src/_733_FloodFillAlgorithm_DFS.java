@@ -8,7 +8,7 @@ package src;
  */
 public class _733_FloodFillAlgorithm_DFS {
 
-    private int[][] fourDirections = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
+    private final int[][] fourDirections = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
 
     /**
      * time  : O(M * N)

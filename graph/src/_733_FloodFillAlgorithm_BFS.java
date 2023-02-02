@@ -25,7 +25,7 @@ public class _733_FloodFillAlgorithm_BFS {
      * time  : O(M * N)
      * space : O(M * N)
      */
-    private int[][] fourDirections = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
+    private final int[][] fourDirections = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
 
     public int[][] floodFill(int[][] image, int startRow, int startCol, int newColor) {
 
