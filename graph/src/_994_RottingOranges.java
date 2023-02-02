@@ -28,6 +28,10 @@ public class _994_RottingOranges {
 
     private final int[][] fourDirections = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
 
+    /**
+     * time : O(n * m)
+     * space ; O(n * m)
+     */
     public int orangesRotting(int[][] grid) {
 
         int freshOrange = 0;
