@@ -28,6 +28,8 @@ public class _103_LevelOrderTraversal_Zigzag {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
+        // reverse = false if we have to reverse first and third column. (odd columns) -- LC version
+        // reverse = true if we have to reverse second and fourth column and so on (even columns) -- GFG version
         boolean reverse = false;
 
         while (!queue.isEmpty()) {
