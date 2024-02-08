@@ -6,7 +6,7 @@ package src;
  *
  * GFG POTD : 28.08.2023 - Solved it by myself.
  */
-public class _83_RemoveDuplicatesFromSortedList {
+/*public class _83_RemoveDuplicatesFromSortedList {
 
     Node removeDuplicates(Node head) {
 
@@ -16,9 +16,9 @@ public class _83_RemoveDuplicatesFromSortedList {
 
             Node next = curr.next;
 
-            /**
+            *//**
              * below while loop is used to detect all the duplicates
-             */
+             *//*
             while (next != null && curr.data == next.data) {
                 next = next.next;
             }
@@ -29,4 +29,4 @@ public class _83_RemoveDuplicatesFromSortedList {
 
         return head;
     }
-}
+}*/
