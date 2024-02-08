@@ -1,5 +1,7 @@
 package src;
 
+import src.nodes.SingleLLNode;
+
 /**
  * https://practice.geeksforgeeks.org/problems/segregate-even-and-odd-nodes-in-a-linked-list5035/1
  *
@@ -10,14 +12,14 @@ public class SegregateEvenOddNodesInLL {
 
   public static void main(String[] args) {
 
-    ListNode head = ListNode.create(new int[]{17, 15, 8, 12, 10, 5, 4, 1, 7, 6}); // 8 12 10 4 6 17 15 5 1 7
-    ListNode.print(divide(head));
+    SingleLLNode head = SingleLLNode.create(new int[]{17, 15, 8, 12, 10, 5, 4, 1, 7, 6}); // 8 12 10 4 6 17 15 5 1 7
+    SingleLLNode.print(divide(head));
 
-    ListNode head1 = ListNode.create(new int[]{1, 3,  5,  7}); // 1 3  5  7
-    ListNode.print(divide(head1));
+    SingleLLNode head1 = SingleLLNode.create(new int[]{1, 3,  5,  7}); // 1 3  5  7
+    SingleLLNode.print(divide(head1));
 
-    ListNode head2 = ListNode.create(new int[]{1, 1, 3}); // 1 1 3
-    ListNode.print(divide(head2));
+    SingleLLNode head2 = SingleLLNode.create(new int[]{1, 1, 3}); // 1 1 3
+    SingleLLNode.print(divide(head2));
 
   }
 
@@ -40,11 +42,11 @@ public class SegregateEvenOddNodesInLL {
    * Space Complexity : O(1)
    */
 
-  private static ListNode divide(ListNode head) {
+  private static SingleLLNode divide(SingleLLNode head) {
 
-    ListNode oddFirst = null, oddLast = null;
-    ListNode evenFirst = null, evenLast = null;
-    ListNode current = head;
+    SingleLLNode oddFirst = null, oddLast = null;
+    SingleLLNode evenFirst = null, evenLast = null;
+    SingleLLNode current = head;
 
     while (current != null) {
 

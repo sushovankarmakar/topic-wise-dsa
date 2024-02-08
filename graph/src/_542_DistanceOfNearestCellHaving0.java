@@ -82,6 +82,19 @@ public class _542_DistanceOfNearestCellHaving0 {
         return nearestDistance;
     }
 
+    /**
+     *            (-1, 0)
+     *              |
+     * (0, -1) -- (0,0) -- (0, +1)
+     *              |
+     *           (+1, 0)
+     *
+     * {0, -1} - left column.
+     * {0, +1} - right column.
+     *
+     * {-1, 0} - top row.
+     * {+1, 0} - bottom row.
+     */
     private static final int[][] fourDirections = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
 
     private static boolean isValidCell(int row, int col, int[][] grid, boolean[][] isVisited) {

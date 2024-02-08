@@ -1,8 +1,10 @@
 package bst;
 
 /**
- * https://leetcode.com/problems/inorder-successor-in-bst/
+ * https://leetcode.com/problems/inorder-successor-in-bst/ (Premium Question)
  * https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1
+ * https://practice.geeksforgeeks.org/problems/inorder-successor-in-bst/1
+ * https://www.codingninjas.com/studio/problems/predecessor-and-successor-in-bst_893049
  *
  * https://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/
  *
