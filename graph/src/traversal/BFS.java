@@ -24,6 +24,17 @@ public class BFS {
         adjList.add(Arrays.asList(6));
 
         /**
+         * Graph :
+         *          1
+         *        /   \
+         *       2     6
+         *      / \   / \
+         *     3   4 7  8
+         *         \ /
+         *          5
+         */
+
+        /**
          * Adjacency List
          * --------------
          * 1 -> [2, 6]
