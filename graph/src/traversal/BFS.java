@@ -35,8 +35,9 @@ public class BFS {
          */
 
         /**
-         * Adjacency List
+         * Adjacency List  (1 based indexing)
          * --------------
+         * 0 -> []
          * 1 -> [2, 6]
          * 2 -> [1, 3, 4]
          * 3 -> [2]
