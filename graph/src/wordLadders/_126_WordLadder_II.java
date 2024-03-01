@@ -2,6 +2,11 @@ package src.wordLadders;
 
 import java.util.*;
 
+/**
+ * https://leetcode.com/problems/word-ladder-ii/
+ * https://www.youtube.com/watch?v=AD4SFl7tu7I&ab_channel=takeUforward (G-31. Word Ladder - 2 | Optimised Approach for Leetcode)
+ * https://takeuforward.org/graph/word-ladder-ii-optimised-approach-g-31/ (I followed this code to solve the problem)
+ */
 public class _126_WordLadder_II {
 
     public static void main(String[] args) {
