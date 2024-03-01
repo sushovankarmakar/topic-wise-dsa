@@ -1,4 +1,4 @@
-package src.bfs_dfs;
+package src.wordLadders;
 
 import java.util.*;
 
@@ -40,7 +40,12 @@ public class _127_WordLadder {
      */
     private static int ladderLength(String beginWord, String endWord, List<String> wordList) {
 
-        Set<String> set = convertListToSet(wordList);
+        Set<String> set = new HashSet<>(wordList);
+
+        // BASE CONDITION
+        if(beginWord.isEmpty() || endWord.isEmpty() || set.isEmpty() || !set.contains(endWord))
+            return 0;
+
         set.add(beginWord);
 
         LinkedList<Pair> queue = new LinkedList<>();
@@ -89,7 +94,7 @@ public class _127_WordLadder {
         return new HashSet<>(wordList);
     }
 
-    static class Pair {
+    private static class Pair {
         String word;
         int steps;
 
