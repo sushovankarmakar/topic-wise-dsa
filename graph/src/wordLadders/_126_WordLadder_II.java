@@ -23,14 +23,30 @@ public class _126_WordLadder_II {
         System.out.println(ladderLength("hit", "cog", words1)); // [], as the endWord is not present in the wordList
     }
 
+    /**
+     * CONCEPT:
+     * --------
+     * 1. For each word, we will keep track of the level at which it is present.
+     *      a. for this, same code will be used as in _127_WordLadder.java (Word Ladder 1)
+     *      b. we will use a map to store the word and its level.
+     *      c. use BFS here.
+     *
+     * 2. We will use DFS to find all the shortest paths from endWord to beginWord.
+     *      a. for this, we will use the map created in step 1.
+     *      b. while backtracking, we will check if the new word is 1 level less than the current word.
+     *      c. if yes, then we will add the new word to the sequence and call the DFS again.
+     *      d. we will keep doing this until we reach the beginWord.
+     *      e. we will keep adding the sequence to the result list.
+     */
     private static List<List<String>> ladderLength(String beginWord, String endWord, List<String> wordList) {
 
         Set<String> set = new HashSet<>(wordList); // converting wordlist to hashset
-        // BASE CONDITION
-        if(beginWord.isEmpty() || endWord.isEmpty() || set.isEmpty() || !set.contains(endWord))
-            return new ArrayList<>();
-
         set.add(beginWord); // IMPORTANT to add beginWord to set, wordLevelMap and the queue. ADD in all 3 places.
+
+        // BASE CONDITION
+        if(beginWord.isEmpty() || endWord.isEmpty() || !set.contains(endWord)) {
+            return new ArrayList<>();
+        }
 
         Map<String, Integer> wordLevelMap = new HashMap<>();
         wordLevelMap.put(beginWord, 1);
@@ -74,12 +90,39 @@ public class _126_WordLadder_II {
         return allShortestPaths;
     }
 
+    /**
+     * DFS call - 1:
+     * ------------
+     *          dfs("cog", "hit", wordLevelMap, ["cog"], [])
+     *                          |
+     *         dfs("log", "hit", wordLevelMap, ["log", "cog"], [])
+     *                          |
+     *         dfs("lot", "hit", wordLevelMap, ["lot", "log", "cog"], [])
+     *                          |
+     *        dfs("hot", "hit", wordLevelMap, ["hot", "lot", "log", "cog"], [])
+     *                          |
+     *       dfs("hit", "hit", wordLevelMap, ["hit", "hot", "lot", "log", "cog"], [])
+     */
+
+    /**
+     * DFS call - 2:
+     * ------------
+     *              dfs("cog", "hit", wordLevelMap, ["cog"], [])
+     *                              |
+     *             dfs("dog", "hit", wordLevelMap, ["dog", "cog"], [])
+     *                              |
+     *            dfs("dot", "hit", wordLevelMap, ["dot", "dog", "cog"], [])
+     *                              |
+     *           dfs("hot", "hit", wordLevelMap, ["hot", "dot", "dog", "cog"], [])
+     *                              |
+     *           dfs("hit", "hit", wordLevelMap, ["hit", "hot", "dot", "dog", "cog"], [])
+     */
     private static void dfs(String currWord, String beginWord,
                             Map<String, Integer> wordLevelMap,
                             List<String> seq, List<List<String>> allShortestPaths) {
 
         if (currWord.equals(beginWord)) {
-            List<String> temp = new ArrayList<>(seq);
+            List<String> temp = new ArrayList<>(seq);   // MADE MISTAKE : I didn't create a new list here.
             Collections.reverse(temp);
             allShortestPaths.add(temp);
             return;
@@ -93,7 +136,10 @@ public class _126_WordLadder_II {
                 currWordCharArray[i] = ch;
                 String newWord = new String(currWordCharArray);
 
-                if (wordLevelMap.containsKey(newWord) && wordLevelMap.get(newWord) == wordLevelMap.get(currWord) - 1) {
+                // the new word should be 1 level less than the current word.
+                // this condition helps us to avoid unnecessary paths
+                if (wordLevelMap.containsKey(newWord) &&
+                        wordLevelMap.get(newWord) == wordLevelMap.get(currWord) - 1) {
 
                     seq.add(newWord);
                     dfs(newWord, beginWord, wordLevelMap, seq, allShortestPaths);
