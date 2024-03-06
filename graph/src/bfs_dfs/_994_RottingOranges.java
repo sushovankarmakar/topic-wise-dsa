@@ -6,21 +6,36 @@ import java.util.Queue;
 /**
  * https://www.youtube.com/watch?v=yf3oUhkvqA0 (Striver : Best Explanation)
  * https://www.youtube.com/watch?v=CxrnOTUlNJE (Tech Dose)
- *
+ * <p>
  * https://practice.geeksforgeeks.org/problems/rotten-oranges2536/1
  * https://leetcode.com/problems/rotting-oranges/
- *
+ * <p>
  * https://github.com/sushovankarmakar/GeeksforGeeks/blob/master/3.%20Medium/src/Graph_RottenOranges.java
  */
 public class _994_RottingOranges {
 
     public static void main(String[] args) {
-        int[][] grid = {
+        int[][] grid1 = {
                 {0, 1, 2},
                 {0, 1, 2},
                 {2, 1, 1}
         };
-        System.out.println(orangesRotting(grid));   // 1
+        System.out.println(orangesRotting(grid1));   // 1
+
+        int[][] grid2 = {
+                {2, 1, 1},
+                {1, 1, 0},
+                {0, 1, 1}};
+        System.out.println(orangesRotting(grid2));   // 4
+
+        int[][] grid3 = {
+                {2, 1, 1},
+                {0, 1, 1},
+                {1, 0, 1}};
+        System.out.println(orangesRotting(grid3));   // -1
+
+        int[][] grid4 = {{0, 2}};
+        System.out.println(orangesRotting(grid4));  // 0
     }
 
     /**
@@ -58,18 +73,22 @@ public class _994_RottingOranges {
 
             Tuple currOrange = queue.poll();
 
+            int currRow = currOrange.row;
+            int currCol = currOrange.col;
+            int currTime = currOrange.time;
+
+            maxTime = Math.max(maxTime, currTime); // IMPORTANT to check the time here only. DON't check inside the below for loop. I did this mistake.
+
             for (int i = 0; i < fourDirections.length; i++) {
 
-                int newRow = currOrange.row + fourDirections[i][0];
-                int newCol = currOrange.col + fourDirections[i][1];
-                int newTime = currOrange.time + 1;
+                int newRow = currRow + fourDirections[i][0];
+                int newCol = currCol + fourDirections[i][1];
+                int newTime = currTime + 1;
 
                 if (isFreshOrange(newRow, newCol, grid)) {
 
                     freshOrange--;
                     grid[newRow][newCol] = 2; // mark it as rotten - IMPORTANT : I forgot this.
-
-                    maxTime = Math.max(maxTime, newTime);
 
                     queue.add(new Tuple(newRow, newCol, newTime));
                 }
