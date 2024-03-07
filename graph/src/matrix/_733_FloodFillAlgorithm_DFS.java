@@ -1,4 +1,4 @@
-package src;
+package src.matrix;
 
 /**
  * https://www.youtube.com/watch?v=C-2_uSRli8o (Striver) - He solved it using DFS. I did using BFS.
@@ -34,8 +34,8 @@ public class _733_FloodFillAlgorithm_DFS {
 
         for (int i = 0; i < fourDirections.length; i++) {
 
-            int newRow = currRow - fourDirections[i][0];
-            int newCol = currCol - fourDirections[i][1];
+            int newRow = currRow + fourDirections[i][0];
+            int newCol = currCol + fourDirections[i][1];
 
             if (isValidPixel(newRow, newCol, image, startingColor, isVisited)) {
 
