@@ -1,4 +1,4 @@
-package src;
+package src.matrix;
 
 /**
  * https://leetcode.com/problems/surrounded-regions/description/
@@ -22,6 +22,7 @@ public class _130_SurroundedRegions {
 
         boolean[][] isVisited = new boolean[n][m];
 
+        // visiting first row and last row
         for (int j = 0; j < m; j++) {
 
             if (mat[0][j] == 'O') {
@@ -33,6 +34,7 @@ public class _130_SurroundedRegions {
             }
         }
 
+        // visiting first col and last col
         for (int i = 0; i < n; i++) {
 
             if (mat[i][0] == 'O') {
