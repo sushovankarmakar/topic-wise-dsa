@@ -1,11 +1,11 @@
-package src;
+package src.matrix;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
  * https://www.youtube.com/watch?v=edXdVwkYHF8 (Striver)
- *
+ * <p>
  * https://leetcode.com/problems/01-matrix/
  * https://practice.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1
  */
@@ -27,20 +27,13 @@ public class _542_DistanceOfNearestCellHaving0 {
         }
     }
 
-    static class Tuple {
-        int row;
-        int col;
-        int dist;
-
-        Tuple(int row, int col, int dist) {
-            this.row = row;
-            this.col = col;
-            this.dist = dist;
-        }
-    }
-
-    //Function to find distance of nearest 1 in the grid for each cell.
-    public static int[][] nearest(int[][] grid) {
+    /**
+     * for those cell consist of 1, we need to find the distance of nearest 0
+     * 	-> so in isValid method, check for only those cell which are not visited before and having 1
+     *
+     * for those cell consist of 0, distance of nearest cell is already 0 and we've put those cells first into the queue.
+     */
+    private static int[][] nearest(int[][] grid) {
 
         int n = grid.length;
         int m = grid[0].length;
@@ -63,13 +56,18 @@ public class _542_DistanceOfNearestCellHaving0 {
         }
 
         while (!queue.isEmpty()) {
-            Tuple currCell = queue.poll();
+
+            int row = queue.peek().row;
+            int col = queue.peek().col;
+            int dist = queue.peek().dist;
+
+            queue.remove();
 
             for (int i = 0; i < fourDirections.length; i++) {
 
-                int newRow = currCell.row + fourDirections[i][0];
-                int newCol = currCell.col + fourDirections[i][1];
-                int newDist = currCell.dist + 1;
+                int newRow = row + fourDirections[i][0];
+                int newCol = col + fourDirections[i][1];
+                int newDist = dist + 1;
 
                 if (isValidCell(newRow, newCol, grid, isVisited)) {
 
@@ -102,5 +100,17 @@ public class _542_DistanceOfNearestCellHaving0 {
         return row >= 0 && col >= 0
                 && row < grid.length && col < grid[0].length
                 && !isVisited[row][col] && grid[row][col] == 1;
+    }
+
+    private static class Tuple {
+        int row;
+        int col;
+        int dist;
+
+        Tuple(int row, int col, int dist) {
+            this.row = row;
+            this.col = col;
+            this.dist = dist;
+        }
     }
 }
