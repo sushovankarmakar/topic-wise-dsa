@@ -8,7 +8,7 @@ package src.matrix;
  * https://www.youtube.com/watch?v=rxKcepXQgU4&ab_channel=takeUforward (Striver)
  * https://takeuforward.org/graph/number-of-enclaves/
  */
-public class _1020_NumberOfEnclaves {
+public class _1020_NumberOfEnclaves_DFS {
 
     public static void main(String[] args) {
         int[][] grid = {
