@@ -1,4 +1,4 @@
-package src.bfs_dfs;
+package src.matrix;
 
 import java.util.LinkedList;
 import java.util.Queue;
