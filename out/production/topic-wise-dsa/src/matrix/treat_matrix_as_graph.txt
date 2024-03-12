@@ -1,0 +1,8 @@
+
+In this type of problem of graph,
+matrix is given, and there is no adjacency list provided.
+
+so we while traversing the matrix, we will use the
+    i. four directions as adjacent list.
+    ii. eight directions as adjacent list
+depending on the problem statement.
