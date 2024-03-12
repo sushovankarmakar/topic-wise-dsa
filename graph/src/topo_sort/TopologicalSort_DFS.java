@@ -9,7 +9,7 @@ import java.util.Stack;
  * https://www.youtube.com/watch?v=5lZ0iJMrUMk&ab_channel=takeUforward (Striver)
  * https://github.com/sushovankarmakar/GeeksforGeeks/blob/master/3.%20Medium/src/Graph_TopologicalSort.java
  */
-public class TopologicalSort {
+public class TopologicalSort_DFS {
 
     private static int[] getTopologicalSort(int v, List<List<Integer>> adj) {
 
