@@ -2,6 +2,11 @@ package src.detect_cycles;
 
 import java.util.List;
 
+/**
+ * https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
+ *
+ * https://www.youtube.com/watch?v=9twcmtQj4DU&ab_channel=takeUforward (Striver)
+ */
 public class DetectCycleInDirectedGraph_DFS {
 
     private static boolean isCyclic(int v, List<List<Integer>> adj) {
