@@ -52,16 +52,16 @@ public class ShortestPathInUndirectedGraph {
             int currDist = queue.peek().dist;
             queue.remove();
 
-            if (distArr[currNode] == -1) {  // if node is not visited yet.
-                distArr[currNode] = currDist;
-            } else {    // if node is already visited then update the distance if it is less than previous distance.
-                distArr[currNode] = Math.min(currDist, distArr[currNode]);
-            }
-
             for (int adjNode : adjList.get(currNode)) {
 
+                int newDist = currDist + 1;
+
                 if (distArr[adjNode] == -1) {   // if node is not visited yet.
-                    queue.add(new Pair(adjNode, currDist + 1));
+                    distArr[adjNode] = newDist;
+                    queue.add(new Pair(adjNode, newDist));
+                } else {
+                    // if node is already visited then update the distance if it is less than previous distance.
+                    distArr[adjNode] = Math.min(newDist, distArr[adjNode]);
                 }
             }
         }
