@@ -1,17 +1,11 @@
-package src.shortest_path_algo;
+package src.shortest_path_algo.dijkstra_algo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.PriorityQueue;
+import java.util.TreeSet;
 
-/**
- * https://www.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
- * <p>
- * https://www.youtube.com/watch?v=V6H1qAeB-l4&ab_channel=takeUforward (Striver)
- * https://takeuforward.org/data-structure/dijkstras-algorithm-using-priority-queue-g-32/ (takeUforward)
- */
-public class DijkstraAlgo {
+public class DijkstraAlgo_usingTreeSet {
 
     public static void main(String[] args) {
 
@@ -58,9 +52,13 @@ public class DijkstraAlgo {
         Arrays.fill(distArr, Integer.MAX_VALUE);
         distArr[src] = 0;
 
-        // min heap : The queue is ordered by distance, so the node with the smallest distance is always at the front.
-        // This is the key to the algorithm.
-        PriorityQueue<Pair> pQueue = new PriorityQueue<>((a, b) -> {
+        // TreeSet is used as a priority queue to store the nodes with their distances.
+        // We are using a TreeSet instead of a PriorityQueue because we need to update the distance of a node in the queue.
+        // TreeSet allows us to update the distance of a node in O(logn) time.
+        // We are using a custom comparator to compare the nodes based on their distances.
+        // If the distance of two nodes is equal, then we compare them based on their node number.
+        // This is done to ensure that the TreeSet does not contain duplicate nodes.
+        TreeSet<Pair> set = new TreeSet<>((a, b) -> {
             if (a.dist != b.dist) {
                 // if the distance of both elements is not equal
                 // than the element with shorter distance will appear first
@@ -71,15 +69,18 @@ public class DijkstraAlgo {
             // but if both are equal than treeSet will return 0 and treat both arrays as equal
             return a.node - b.node;
         });
-        pQueue.add(new Pair(src, 0));
+
+        set.add(new Pair(src, 0));
 
         // simple BFS traversal
-        while (!pQueue.isEmpty()) {
+        while (!set.isEmpty()) {
 
-            int currNode = pQueue.peek().node;
-            int currDist = pQueue.peek().dist;
+            Pair pair = set.pollFirst();
 
-            pQueue.remove();
+            if (pair == null) continue;
+
+            int currNode = pair.node; // pollFirst() is equivalent to remove() in PriorityQueue
+            int currDist = pair.dist;
 
             for (List<Integer> adjNodes : adjList.get(currNode)) {
 
@@ -92,7 +93,7 @@ public class DijkstraAlgo {
                 if (currDist + adjNodeDist < distArr[adjNode]) {
 
                     distArr[adjNode] = currDist + adjNodeDist;
-                    pQueue.add(new Pair(adjNode, distArr[adjNode])); // made a mistake here, should NOT be adjNodeDist instead of distArr[adjNode]
+                    set.add(new Pair(adjNode, distArr[adjNode])); // made a mistake here, should NOT be adjNodeDist instead of distArr[adjNode]
                 }
             }
         }

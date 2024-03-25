@@ -1,4 +1,4 @@
-package src.shortest_path_algo;
+package src.shortest_path_algo.dijkstra_algo;
 
 import java.util.*;
 
@@ -137,5 +137,9 @@ public class DijkstraAlgo_PrintShortestPath {
         }
 
         return adjList;
+    }
+
+    private boolean isValid(int row, int col, int[][] grid) {
+        return row >= 0 && col >= 0 && row < grid.length && col < grid[0].length && grid[row][col] == 1;
     }
 }
