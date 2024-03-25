@@ -12,10 +12,15 @@ public class DijkstraAlgo_PrintShortestPath {
 
     public static void main(String[] args) {
 
-        int n = 2;
-        int m = 1;
+        int n = 5;
+        int m = 6;
         int[][] edges = {
-                {1, 2, 2}
+                {1, 2, 2},
+                {2, 5, 5},
+                {2, 3, 4},
+                {1, 4, 1},
+                {4, 3, 3},
+                {3, 5, 1}
         };
 
         // source node and target node is always 1 and n respectively.
