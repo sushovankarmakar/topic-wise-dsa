@@ -8,6 +8,7 @@ import java.util.PriorityQueue;
  * https://www.geeksforgeeks.org/problems/path-with-minimum-effort/1
  * <p>
  * https://www.youtube.com/watch?v=0ytpZyiZFhA&ab_channel=takeUforward (Striver)
+ * https://takeuforward.org/data-structure/g-37-path-with-minimum-effort/
  */
 public class _1631_PathWithMinEffort {
 
