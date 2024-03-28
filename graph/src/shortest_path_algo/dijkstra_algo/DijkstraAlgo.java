@@ -15,46 +15,55 @@ public class DijkstraAlgo {
 
     public static void main(String[] args) {
 
-        int V = 6;
-        List<List<List<Integer>>> adjList = new ArrayList<>();
+        /*int v = 6;
+        int[][] edges = {
+                // adjacency nodes for 0
+                {0, 1, 4},
+                {0, 2, 4},
+                // adjacency nodes for 1
+                {1, 0, 4},
+                {1, 2, 2},
+                // adjacency nodes for 2
+                {2, 0, 4},
+                {2, 1, 2},
+                {2, 3, 3},
+                {2, 4, 1},
+                {2, 5, 6},
+                // adjacency nodes for 3
+                {3, 2, 3},
+                {3, 5, 2},
+                // adjacency nodes for 4
+                {4, 2, 1},
+                {4, 5, 3},
+                // adjacency nodes for 5
+                {5, 2, 6},
+                {5, 3, 2},
+                {5, 4, 3}
+        };*/
 
-        for (int i = 0; i < V; i++) {
-            adjList.add(new ArrayList<>());
-        }
-        // adjacency nodes for 0
-        addEdge(adjList, 0, 1, 4);
-        addEdge(adjList, 0, 2, 4);
-        // adjacency nodes for 1
-        addEdge(adjList, 1, 0, 4);
-        addEdge(adjList, 1, 2, 2);
-        // adjacency nodes for 2
-        addEdge(adjList, 2, 0, 4);
-        addEdge(adjList, 2, 1, 2);
-        addEdge(adjList, 2, 3, 3);
-        addEdge(adjList, 2, 4, 1);
-        addEdge(adjList, 2, 5, 6);
-        // adjacency nodes for 3
-        addEdge(adjList, 3, 2, 3);
-        addEdge(adjList, 3, 5, 2);
-        // adjacency nodes for 4
-        addEdge(adjList, 4, 2, 1);
-        addEdge(adjList, 4, 5, 3);
-        // adjacency nodes for 5
-        addEdge(adjList, 5, 2, 6);
-        addEdge(adjList, 5, 3, 2);
-        addEdge(adjList, 5, 4, 3);
+        int v = 6;
+        int[][] edges = {
+                {0, 1, 2},
+                {0, 4, 1},
+                {4, 5, 4},
+                {4, 2, 2},
+                {1, 2, 3},
+                {2, 3, 6},
+                {5, 3, 1}
+        };
 
+        List<List<List<Integer>>> adjList = getAdjList(v, edges);
         int src = 0;
-        int[] distArr = dijkstra(V, adjList, src);
+        int[] distArr = dijkstra(v, adjList, src);
 
-        for (int i = 0; i < V; i++) {
+        for (int i = 0; i < v; i++) {
             System.out.println("Shortest distance from " + src + " to " + i + " is " + distArr[i]); // output -> [0, 4, 4, 7, 5, 8]
         }
     }
 
-    private static int[] dijkstra(int V, List<List<List<Integer>>> adjList, int src) {
+    private static int[] dijkstra(int v, List<List<List<Integer>>> adjList, int src) {
 
-        int[] distArr = new int[V]; // This array will hold the shortest distance from the source vertex to each other vertex.
+        int[] distArr = new int[v]; // This array will hold the shortest distance from the source vertex to each other vertex.
         Arrays.fill(distArr, Integer.MAX_VALUE);
         distArr[src] = 0;
 
@@ -109,8 +118,22 @@ public class DijkstraAlgo {
         }
     }
 
-    private static void addEdge(List<List<List<Integer>>> adjList, int src, int dst, int dist) {
-        adjList.get(src).add(new ArrayList<>(Arrays.asList(dst, dist)));
-        adjList.get(dst).add(new ArrayList<>(Arrays.asList(src, dist)));
+    private static List<List<List<Integer>>> getAdjList(int v, int[][] edges) {
+
+        List<List<List<Integer>>> adjList = new ArrayList<>();
+
+        for (int i = 0; i < v; i++) {
+            adjList.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < edges.length; i++) {
+            int src = edges[i][0];
+            int dst = edges[i][1];
+            int dist = edges[i][2];
+
+            adjList.get(src).add(Arrays.asList(dst, dist));
+            adjList.get(dst).add(Arrays.asList(src, dist));
+        }
+        return adjList;
     }
 }
