@@ -6,12 +6,16 @@ import java.util.Map;
 public class _20240602_1414_OneToOneCharMapping {
 
     // explanation : https://chatgpt.com/share/250e10ed-ebef-491b-9e91-57c8c62afcae
+
+    // we need to focus on allowing any character in s1 to map to any character in s2 such that
+    // the frequencies of characters in s1 match the frequencies of characters in s2.
     public static boolean isOneToOneMapping(String s1, String s2) {
 
         if (s1.length() != s2.length()) {
             return false;
         }
 
+        // Frequency Counting: Create two HashMap objects to count the frequencies of characters in s1 and s2.
         Map<Character,  Integer> freqS1 = new HashMap<>();
         Map<Character,  Integer> freqS2 = new HashMap<>();
 
@@ -24,6 +28,7 @@ public class _20240602_1414_OneToOneCharMapping {
             freqS2.put(ch2, freqS2.getOrDefault(ch2, 0) + 1);
         }
 
+        // Frequency Comparison: Check if the frequency values in both maps are equal by ensuring both maps' values contain all of each other's values.
         return freqS1.values().containsAll(freqS2.values()) &&
                 freqS2.values().containsAll(freqS1.values());
     }
