@@ -1,4 +1,4 @@
-package src;
+package src.dp;
 
 /**
  * https://leetcode.com/problems/domino-and-tromino-tiling/
@@ -9,7 +9,7 @@ package src;
  * <p>
  * https://www.youtube.com/watch?v=7cijrfUkQzc&ab_channel=CodingDecoded (Only this video solution I understood) <- Good explanation
  */
-public class _790_DominoAndTrominoTiling {
+public class _20240605_1417_DominoAndTrominoTiling {
 
     // My handwritten diagram to understand the relation : https://drive.google.com/file/d/1Gc807G52iAsFHqFl3jXSLKumcsIuRY5X/view?usp=sharing
     public static void main(String[] args) {
@@ -19,24 +19,13 @@ public class _790_DominoAndTrominoTiling {
         System.out.println(numTilings(1000)); // 979232805
     }
 
-    // DRAW FOR N = 1, 2, 3, 4 TO UNDERSTAND THE RELATION.
-    /**
-     * dp[n]  = dp[n-1] + dp[n-2] + 2*(dp[n-3]+...+d[0])
-     *        = dp[n-1] + dp[n-2] + dp[n-3] + dp[n-3] +  2*(dp[n-4]+...+d[0])
-     *        = dp[n-1] + dp[n-3] + (dp[n-2] + dp[n-3] + 2*(dp[n-4]+...+d[0]))
-     *        = dp[n-1] + dp[n-3] + dp[n-1]
-     *        = 2*dp[n-1] + dp[n-3]
-     */
-    /**
-     * https://www.youtube.com/watch?v=7cijrfUkQzc&ab_channel=CodingDecoded
-     */
     private static int numTilings(int n) {
 
         if (n < 3) {
             return n;
         }
 
-        int mod = 1000000007; // modulo = 10^9 + 7.
+        int mod = 1000000007;
 
         int[] dp = new int[n + 1];
         dp[0] = 1;
@@ -44,9 +33,9 @@ public class _790_DominoAndTrominoTiling {
         dp[2] = 2;
 
         for (int i = 3; i <= n; i++) {
-            dp[i] = ((2 * dp[i - 1]) % mod + dp[i - 3]) % mod;
+            dp[i] = (((2 * dp[i - 1]) % mod) + dp[i - 3]) % mod;
         }
-        return dp[n];
-    }
 
+        return dp[n] % mod;
+    }
 }
