@@ -5,6 +5,32 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * This problem was asked by Stripe.
+ *
+ * Write a function to flatten a nested dictionary. Namespace the keys with a period.
+ *
+ * For example, given the following dictionary:
+ *
+ * {
+ *     "key": 3,
+ *     "foo": {
+ *         "a": 5,
+ *         "bar": {
+ *             "baz": 8
+ *         }
+ *     }
+ * }
+ * it should become:
+ *
+ * {
+ *     "key": 3,
+ *     "foo.a": 5,
+ *     "foo.bar.baz": 8
+ * }
+ * You can assume keys do not contain dots in them, i.e. no clobbering will occur.
+ */
+
 public class _20240603_1415_FlattenNestedDictionary {
 
     // https://chatgpt.com/share/12084b8e-e12b-496a-b5d9-ffd49d329684

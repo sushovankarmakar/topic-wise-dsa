@@ -3,6 +3,17 @@ package src.string;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This problem was asked by Bloomberg.
+ * <p>
+ * Determine whether there exists a one-to-one character mapping from one string s1 to another s2.
+ * <p>
+ * For example, given s1 = abc and s2 = bcd,
+ * return true since we can map a to b, b to c, and c to d.
+ * <p>
+ * Given s1 = foo and s2 = bar, return false since the o cannot map to two characters.
+ */
+
 public class _20240602_1414_OneToOneCharMapping {
 
     // explanation : https://chatgpt.com/share/250e10ed-ebef-491b-9e91-57c8c62afcae
@@ -16,8 +27,8 @@ public class _20240602_1414_OneToOneCharMapping {
         }
 
         // Frequency Counting: Create two HashMap objects to count the frequencies of characters in s1 and s2.
-        Map<Character,  Integer> freqS1 = new HashMap<>();
-        Map<Character,  Integer> freqS2 = new HashMap<>();
+        Map<Character, Integer> freqS1 = new HashMap<>();
+        Map<Character, Integer> freqS2 = new HashMap<>();
 
         for (int i = 0; i < s1.length(); i++) {
 

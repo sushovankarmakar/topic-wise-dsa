@@ -2,6 +2,17 @@ package src.stack;
 
 import java.util.Stack;
 
+/**
+ * This problem was asked by Facebook.
+ * <p>
+ * Given a string consisting of parentheses, single digits, and positive and negative signs,
+ * convert the string into a mathematical expression to obtain the answer.
+ * <p>
+ * Don't use eval or a similar built-in parser.
+ * <p>
+ * For example, given '-1 + (2 + 3)', you should return 4
+ */
+
 public class _20240604_1416_ExpressionEvaluator {
 
     // https://chatgpt.com/share/dacd0aff-5d17-415c-bf21-5541c84e995b
