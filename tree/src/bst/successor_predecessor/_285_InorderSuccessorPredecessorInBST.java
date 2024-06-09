@@ -1,4 +1,6 @@
-package bst;
+package bst.successor_predecessor;
+
+import bst.TreeNode;
 
 /**
  * https://leetcode.com/problems/inorder-successor-in-bst/ (Premium Question)
