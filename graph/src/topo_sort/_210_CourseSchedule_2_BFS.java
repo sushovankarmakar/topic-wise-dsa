@@ -8,7 +8,7 @@ import java.util.*;
  * https://www.youtube.com/watch?v=WAOfKpxYHR8&ab_channel=takeUforward (Striver)
  * https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/
  */
-public class _210_CourseSchedule_2 {
+public class _210_CourseSchedule_2_BFS {
 
     public static void main(String[] args) {
         int[] result = findOrder(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}});

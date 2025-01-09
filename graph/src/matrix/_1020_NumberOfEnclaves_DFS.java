@@ -36,41 +36,55 @@ public class _1020_NumberOfEnclaves_DFS {
         boolean[][] isVisited = new boolean[n][m];
 
         // visiting first row and last row
-        for (int j = 0; j < m; j++) {
-
-            if (grid[0][j] == 1) {
-                dfs(0, j, grid, isVisited);      // first row
-            }
-
-            if (grid[n - 1][j] == 1) {
-                dfs(n - 1, j, grid, isVisited);  // last row
-            }
-        }
+        visitingFirstAndLastRow(grid, n, m, isVisited);
 
         // visiting first col and last col
-        for (int i = 0; i < n; i++) {
+        visitingFirstAndLastCol(grid, m, n, isVisited);
 
-            if (grid[i][0] == 1) {
-                dfs(i, 0, grid, isVisited);      // first col
-            }
-
-            if (grid[i][m - 1] == 1) {
-                dfs(i, m - 1, grid, isVisited);  // last col
-            }
-        }
-
-        int count = 0;
+        int enclaves = 0;
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
 
                 if (grid[i][j] == 1 && !isVisited[i][j]) {
-                    count++;
+                    enclaves++;
                 }
             }
         }
 
-        return count;
+        return enclaves;
+    }
+
+    private static void visitingFirstAndLastRow(int[][] grid, int n, int m, boolean[][] isVisited) {
+        int firstRow = 0;
+        int lastRow = n - 1;
+
+        for (int j = 0; j < m; j++) {
+
+            if (grid[firstRow][j] == 1 && !isVisited[firstRow][j]) {
+                dfs(firstRow, j, grid, isVisited);
+            }
+
+            if (grid[lastRow][j] == 1 && !isVisited[lastRow][j]) {
+                dfs(lastRow, j, grid, isVisited);
+            }
+        }
+    }
+
+    private static void visitingFirstAndLastCol(int[][] grid, int m, int n, boolean[][] isVisited) {
+        int firstCol = 0;
+        int lastCol = m - 1;
+
+        for (int i = 0; i < n; i++) {
+
+            if (grid[i][firstCol] == 1 && !isVisited[i][firstCol]) {
+                dfs(i, firstCol, grid, isVisited);
+            }
+
+            if (grid[i][lastCol] == 1 && !isVisited[i][lastCol]) {
+                dfs(i, lastCol, grid, isVisited);
+            }
+        }
     }
 
     private static void dfs(int row, int col, int[][] grid, boolean[][] isVisited) {

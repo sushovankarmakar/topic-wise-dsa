@@ -27,7 +27,11 @@ public class _547_NumberOfProvinces {
          * 1 -- 2
          *   3
          */
-        System.out.println(getNumberOfProvinces(adjMatrix));    // 2
+        //System.out.println(getNumberOfProvinces(adjMatrix));    // 2
+
+        // [ [1, 0, 0, 1], [0, 1, 1, 0], [0, 1, 1, 0], [1, 0, 0, 1] ]
+        int[][] adjMatrix2 = {{1, 0, 0, 1}, {0, 1, 1, 0}, {0, 1, 1, 0}, {1, 0, 0, 1}};
+        System.out.println(getNumberOfProvinces(adjMatrix2));    // 2
     }
 
     /**
@@ -58,7 +62,7 @@ public class _547_NumberOfProvinces {
 
             if (!isVisited[i]) {
                 numOfProvinces++;
-                bfs(i, isVisited, adjList);
+                dfs(i, isVisited, adjList);
             }
         }
 
@@ -113,7 +117,7 @@ public class _547_NumberOfProvinces {
         for (int i = 0; i < isConnected.length; i++) {
             for (int j = 0; j < isConnected[i].length; j++) {
 
-                if (isConnected[i][j] == 1 && i != j) {
+                if (isConnected[i][j] == 1 && i != j) { // IMPORTANT to check this : I made this mistake.
 
                     adjList.get(i).add(j);
                     adjList.get(j).add(i);

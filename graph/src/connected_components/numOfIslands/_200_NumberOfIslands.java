@@ -1,4 +1,4 @@
-package src.connected_components;
+package src.connected_components.numOfIslands;
 
 import java.util.LinkedList;
 import java.util.Queue;

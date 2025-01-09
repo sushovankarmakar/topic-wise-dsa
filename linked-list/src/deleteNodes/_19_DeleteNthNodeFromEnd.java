@@ -66,4 +66,21 @@ public class _19_DeleteNthNodeFromEnd {
         back.next = back.next.next;
         return head;
     }
+
+    public SingleLLNode findKthFromEnd(SingleLLNode head, int k) {
+
+        SingleLLNode back = head, front = head;
+
+        while (k-- > 0) {
+            if (front == null) return null; // this condition is VERY IMPORTANT
+            front = front.next;
+        }
+
+        while (front != null) {
+            back = back.next;
+            front = front.next;
+        }
+
+        return back;
+    }
 }

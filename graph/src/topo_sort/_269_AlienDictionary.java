@@ -28,24 +28,18 @@ public class _269_AlienDictionary {
      * 1. Build adjacency list
      * 2. Topological sort
      */
-    private static String findOrder(String[] dict, int n, int k) {
+    private static String findOrder(String[] dict, int numOfWords, int numOfAlphabets) {
 
         // STEP 1: build adjacency list
-        List<List<Integer>> adjList = new ArrayList<>();
-        for (int i = 0; i < k; i++) {
-            adjList.add(new ArrayList<>());
-        }
-
-        for (int i = 0; i < n - 1; i++) {
-            buildAdjList(dict[i], dict[i + 1], adjList);
-        }
+        List<List<Integer>> adjList = getAdjList(dict, numOfWords, numOfAlphabets);
 
         // STEP 2: topological sort
-        boolean[] isVisited = new boolean[k];
+        boolean[] isVisited = new boolean[numOfAlphabets];
         Stack<Character> stack = new Stack<>();
 
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < numOfAlphabets; i++) {
             if (!isVisited[i]) {
+                isVisited[i] = true;
                 topoSortDFS(i, isVisited, stack, adjList);
             }
         }
@@ -58,7 +52,21 @@ public class _269_AlienDictionary {
         return sb.toString();
     }
 
-    private static void buildAdjList(String s1, String s2, List<List<Integer>> adjList) {
+    private static List<List<Integer>> getAdjList(String[] dict, int numOfWords, int numOfAlphabets) {
+
+        List<List<Integer>> adjList = new ArrayList<>();
+        for (int i = 0; i < numOfAlphabets; i++) { // here to use numOfAlphabets
+            adjList.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < numOfWords - 1; i++) { // here to use numOfWords
+            compareWords(dict[i], dict[i + 1], adjList);
+        }
+
+        return adjList;
+    }
+
+    private static void compareWords(String s1, String s2, List<List<Integer>> adjList) {
 
         int len1 = s1.length();
         int len2 = s2.length();
@@ -68,8 +76,8 @@ public class _269_AlienDictionary {
 
         while (i < len1 && j < len2) {
 
-            char ch1 = s1.charAt(i);
-            char ch2 = s2.charAt(j);
+            char ch1 = s1.charAt(i++);
+            char ch2 = s2.charAt(j++);
 
             if (ch1 != ch2) {
 
@@ -77,11 +85,8 @@ public class _269_AlienDictionary {
                 int dst = ch2 - 'a';
 
                 adjList.get(src).add(dst);
-                break;
+                break; // important to break here. I did mistake here
             }
-
-            i++;
-            j++;
         }
     }
 
@@ -92,6 +97,7 @@ public class _269_AlienDictionary {
         for (int adjNode : adjList.get(currNode)) {
 
             if (!isVisited[adjNode]) {
+                isVisited[adjNode] = true;
                 topoSortDFS(adjNode, isVisited, stack, adjList);
             }
         }

@@ -7,7 +7,7 @@ package src.matrix;
  *
  * https://www.youtube.com/watch?v=BtdgAys4yMk (Striver)
  */
-public class _130_SurroundedRegions {
+public class _130_SurroundedRegions_DFS {
 
     public static void main(String[] args) {
     }
@@ -22,29 +22,8 @@ public class _130_SurroundedRegions {
 
         boolean[][] isVisited = new boolean[n][m];
 
-        // visiting first row and last row
-        for (int j = 0; j < m; j++) {
-
-            if (mat[0][j] == 'O') {
-                dfs(0, j, mat, isVisited);      // first row
-            }
-
-            if (mat[n - 1][j] == 'O') {
-                dfs(n - 1, j, mat, isVisited);  // last row
-            }
-        }
-
-        // visiting first col and last col
-        for (int i = 0; i < n; i++) {
-
-            if (mat[i][0] == 'O') {
-                dfs(i, 0, mat, isVisited);      // first col
-            }
-
-            if (mat[i][m - 1] == 'O') {
-                dfs(i, m - 1, mat, isVisited);  // last col
-            }
-        }
+        visitingFirstAndLastRow(mat, isVisited);    // visiting first row and last row
+        visitingFirstAndLastCol(mat, isVisited);    // visiting first col and last col
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -60,6 +39,46 @@ public class _130_SurroundedRegions {
         }
 
         return mat;
+    }
+
+    private static void visitingFirstAndLastRow(char[][] mat, boolean[][] isVisited) {
+
+        int n = mat.length;
+        int m = mat[0].length;
+
+        int firstRow = 0;
+        int lastRow = n - 1;
+
+        for (int j = 0; j < m; j++) {
+
+            if (mat[firstRow][j] == 'O' && !isVisited[firstRow][j]) {
+                dfs(firstRow, j, mat, isVisited);
+            }
+
+            if (mat[lastRow][j] == 'O' && !isVisited[lastRow][j]) {
+                dfs(lastRow, j, mat, isVisited);
+            }
+        }
+    }
+
+    private static void visitingFirstAndLastCol(char[][] mat, boolean[][] isVisited) {
+
+        int n = mat.length;
+        int m = mat[0].length;
+
+        int firstCol = 0;
+        int lastCol = m - 1;
+
+        for (int i = 0; i < n; i++) {
+
+            if (mat[i][firstCol] == 'O' && !isVisited[i][firstCol]) {
+                dfs(i, firstCol, mat, isVisited);
+            }
+
+            if (mat[i][lastCol] == 'O' && !isVisited[i][lastCol]) {
+                dfs(i, lastCol, mat, isVisited);
+            }
+        }
     }
 
     private static void dfs(int row, int col, char[][] mat, boolean[][] isVisited) {
