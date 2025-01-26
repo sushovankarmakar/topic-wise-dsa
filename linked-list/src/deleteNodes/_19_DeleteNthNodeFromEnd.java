@@ -48,7 +48,7 @@ public class _19_DeleteNthNodeFromEnd {
         SingleLLNode back = head;
         SingleLLNode front = head;
 
-        while (n > 0) {
+        while (n > 0) { //  Move the fast pointer N nodes ahead of the slow pointer.
             front = front.next;
             n = n - 1;
         }
@@ -82,5 +82,48 @@ public class _19_DeleteNthNodeFromEnd {
         }
 
         return back;
+    }
+
+    // https://chat.deepseek.com/a/chat/s/18b039bb-c0d4-41d4-aa70-6643c809c902
+    /**
+     * Approach
+     * --------
+     * Dummy Node:
+     * Use a dummy node to simplify edge cases, especially when the head node needs to be removed.
+     * --
+     * Two Pointers:
+     * Utilize two pointers, slow and fast, both starting at the dummy node.
+     * --
+     * Advance Fast Pointer:
+     * Move the fast pointer n + 1 steps ahead of the slow pointer. This creates a gap of n nodes between the two pointers.
+     * --
+     * Traverse to End:
+     * Move both pointers simultaneously until the fast pointer reaches the end of the list (null).
+     * At this point, the slow pointer will be positioned just before the node to be removed.
+     * --
+     * Remove Node:
+     * Adjust the next pointer of the node pointed to by slow to skip the nth node from the end.
+     */
+    public SingleLLNode removeNthFromEnd_UsingDummyNode(SingleLLNode head, int n) {
+        SingleLLNode dummy = new SingleLLNode(0);
+        dummy.next = head;
+        SingleLLNode slow = dummy;
+        SingleLLNode fast = dummy;
+
+        // Move fast pointer n+1 steps ahead
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+
+        // Move both pointers until fast reaches the end
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        // Remove the nth node from the end
+        slow.next = slow.next.next;
+
+        return dummy.next;
     }
 }
