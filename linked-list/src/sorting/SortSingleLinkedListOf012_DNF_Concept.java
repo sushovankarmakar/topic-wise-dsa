@@ -5,13 +5,13 @@ import src.nodes.SingleLLNode;
 import static src.nodes.SingleLLNode.print;
 
 /**
- * https://www.youtube.com/watch?v=gRII7LhdJWc - Striver - changing links.
+ * <a href="https://www.youtube.com/watch?v=gRII7LhdJWc">Striver YT : Sort SLL in 0s, 1s, 2s</a> - Striver - changing links.
  * <p>
- * https://www.codingninjas.com/studio/problems/sort-linked-list-of-0s-1s-2s_1071937
- * https://www.geeksforgeeks.org/problems/given-a-linked-list-of-0s-1s-and-2s-sort-it/1
+ * <a href="https://www.codingninjas.com/studio/problems/sort-linked-list-of-0s-1s-2s_1071937">Coding Ninjas : Sort SLL in 0s, 1s, 2s</a>
+ * <a href="https://www.geeksforgeeks.org/problems/given-a-linked-list-of-0s-1s-and-2s-sort-it/1">GFG : Sort SLL in 0s, 1s, 2s</a>
  */
 
-public class SortSingleLinkedListOf012 {
+public class SortSingleLinkedListOf012_DNF_Concept {
 
     public static void main(String[] args) {
         SingleLLNode initialHead = SingleLLNode.create(new int[]{1, 0, 2, 1, 0, 2, 1});
@@ -67,7 +67,8 @@ public class SortSingleLinkedListOf012 {
         // stitching one with two
         oneMover.next = twoDummyHead.next;
         // stitching two with null. IMPORTANT or else infinite loop
-        twoMover.next = null;
+        twoMover.next = null; // Terminate the list
+
         // decide new head, after stitching
         SingleLLNode newHead = zeroDummyHead.next;
         return newHead;

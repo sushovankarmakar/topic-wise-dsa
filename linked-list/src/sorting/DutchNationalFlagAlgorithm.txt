@@ -1,0 +1,6 @@
+The Dutch National Flag Algorithm (DNF) is a sorting algorithm
+designed to efficiently sort an array or list containing three distinct elements (e.g., 0s, 1s, and 2s)
+in linear time (O(n)) with constant space (O(1)).
+
+It was proposed by Edsger Dijkstra and is named after the Dutch flag,
+which has three vertical stripes of red, white, and blue—analogous to the three distinct elements being sorted.
