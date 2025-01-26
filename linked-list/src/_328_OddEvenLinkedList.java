@@ -57,4 +57,38 @@ public class _328_OddEvenLinkedList {
     // I first wrote it like this,
     // this also works.
 
+    // approach - 2
+    public static SingleLLNode oddEvenList2(SingleLLNode head) {
+
+        if (head == null || head.next == null) return head;
+
+        SingleLLNode mover = head;
+
+        SingleLLNode evenDummyHead = new SingleLLNode(0);
+        SingleLLNode evenMover = evenDummyHead;
+
+        SingleLLNode oddDummyHead = new SingleLLNode(0);
+        SingleLLNode oddMover = oddDummyHead;
+
+        int count = 1;
+
+        while (mover != null) {
+            SingleLLNode newNode = new SingleLLNode(mover.val);
+
+            if (count % 2 == 0) {
+                evenMover.next = newNode;
+                evenMover = evenMover.next;
+            } else {
+                oddMover.next = newNode;
+                oddMover = oddMover.next;
+            }
+
+            count++;
+            mover = mover.next;
+        }
+
+        oddMover.next = evenDummyHead.next;
+        return oddDummyHead.next;
+    }
+
 }

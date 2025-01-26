@@ -3,7 +3,7 @@ package src.nodes;
 public class SingleLLNode {
 
     public int val;
-    public SingleLLNode next;
+    public SingleLLNode next; // this is a self defined data type
 
     public SingleLLNode() {
     }
