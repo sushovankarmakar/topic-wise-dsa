@@ -36,16 +36,37 @@ public class _206_ReverseLinkedList {
 
     private static SingleLLNode reverse(SingleLLNode curr) {
 
+        /* Base case:
+        If the linked list is empty or has only one node,
+        return the head as it is already reversed. */
         if (curr == null || curr.next == null) {
             return curr;    // we've reached the last position, so last node is the current newHead.
         }
 
+        /* Recursive step:
+        Reverse the linked list starting
+        from the second node (head.next). */
         SingleLLNode newHead = reverse(curr.next);  // store the new head, this newHead will be returned in each steps
 
+        /* Save a reference to the node following the current 'head' node. */
         SingleLLNode front = curr.next;
-        front.next = curr;
+
+        /* Make the 'front' node point
+        to the current
+        'head' node in the
+        reversed order. */
+        front.next = curr; // reversing the list here.
+
+        /* Break the link from
+        the current 'head' node
+        to the 'front' node
+        to avoid cycles. */
         curr.next = null; // Very important to break the chain.
 
+        /* Return the 'newHead,'
+        which is the new
+        head of the reversed
+        linked list. */
         return newHead;
     }
 
