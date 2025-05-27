@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://www.geeksforgeeks.org/problems/print-adjacency-list-1587115620/1
- * https://www.youtube.com/watch?v=OsNklbh9gYI&t=637s&ab_channel=takeUforward
+ * <a href="https://www.geeksforgeeks.org/problems/print-adjacency-list-1587115620/1">Print adjacency list</a>
+ * <a href="https://www.youtube.com/watch?v=OsNklbh9gYI&t=637s&ab_channel=takeUforward">Build adjacency list</a>
  */
 public class PrintAdjList {
 
