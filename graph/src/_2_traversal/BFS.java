@@ -1,4 +1,4 @@
-package src.traversal;
+package src._2_traversal;
 
 import java.util.*;
 
@@ -67,11 +67,11 @@ public class BFS {
      * - initialization 3 things :
      *     - a boolean visited array,
      *     - a queue and
-     *     - a array-list to store the bfs
+     *     - an array-list to store the bfs
      * - start from a node,
      *     - mark it visited and
      *     - add it to bfs list
-     * - now explore it neighbours adjacency list and
+     * - now explore it neighbors adjacency list and
      *     - add them into queue and
      *     - mark them visited.
      */
@@ -85,7 +85,7 @@ public class BFS {
         Queue<Integer> queue = new LinkedList<>();
         List<Integer> bfs = new ArrayList<>();
 
-        int currNode = 1;   // starting node can be 0 or 1
+        int currNode = 1;   // the starting node can be 0 or 1
         isVisited[currNode] = true;
         queue.add(currNode);
 

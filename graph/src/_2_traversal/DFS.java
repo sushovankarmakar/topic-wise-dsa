@@ -1,4 +1,4 @@
-package src.traversal;
+package src._2_traversal;
 
 import java.util.ArrayList;
 import java.util.Arrays;
