@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/description/
+ * https://www.youtube.com/watch?v=Y2xJne8gnIk&t=12s&ab_channel=AdityaVerma
+ * https://algo.monster/liteproblems/1466
+ */
 public class _1466_ReorderRoutes {
 
     public static void main(String[] args) {

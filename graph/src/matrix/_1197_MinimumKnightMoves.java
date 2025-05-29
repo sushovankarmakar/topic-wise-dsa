@@ -3,6 +3,11 @@ package src.matrix;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * https://www.geeksforgeeks.org/problems/steps-by-knight5927/1
+ * https://leetcode.com/problems/minimum-knight-moves/description/
+ * https://algo.monster/liteproblems/1197
+ */
 public class _1197_MinimumKnightMoves {
 
     public static void main(String[] args) {
