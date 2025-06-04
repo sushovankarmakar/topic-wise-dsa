@@ -1,5 +1,6 @@
 package src.detect_cycles;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,7 +10,9 @@ import java.util.List;
  */
 public class DetectCycleInDirectedGraph_DFS {
 
-    private static boolean isCyclic(int v, List<List<Integer>> adj) {
+    private boolean isCyclic(int v, int[][] edges) {
+
+        List<List<Integer>> adjList = getAdjList(v, edges);
 
         /**
          * isVisited 		= to check if this current node has been visited or not.
@@ -21,7 +24,7 @@ public class DetectCycleInDirectedGraph_DFS {
         for (int i = 0; i < v; i++) {
 
             if (!isVisited[i]) {
-                if (dfs(i, isVisited, isPathVisited, adj)) {
+                if (dfs(i, isVisited, isPathVisited, adjList)) {
                     return true;
                 }
             }
@@ -29,7 +32,7 @@ public class DetectCycleInDirectedGraph_DFS {
         return false;
     }
 
-    private static boolean dfs(int currNode, boolean[] isVisited, boolean[] isPathVisited, List<List<Integer>> adj) {
+    private boolean dfs(int currNode, boolean[] isVisited, boolean[] isPathVisited, List<List<Integer>> adj) {
 
         isVisited[currNode] = true;
         isPathVisited[currNode] = true;
@@ -48,6 +51,8 @@ public class DetectCycleInDirectedGraph_DFS {
         }
 
         /**
+         * We're backtracking. here.
+         * ------------------------
          * IMPORTANT :
          * we've explored all the paths start from currNode.
          * so before exploring different path, we need to mark this node as false.
@@ -57,6 +62,25 @@ public class DetectCycleInDirectedGraph_DFS {
         isPathVisited[currNode] = false;
 
         return false;
+    }
+
+    private List<List<Integer>> getAdjList(int v, int[][] edges) {
+
+        List<List<Integer>> adjList = new ArrayList<>();
+
+        for (int i = 0; i < v; i++) {
+            adjList.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < edges.length; i++) {
+
+            int src = edges[i][0];
+            int dst = edges[i][1];
+
+            adjList.get(src).add(dst); // this is a directed graph.
+        }
+
+        return adjList;
     }
 
 

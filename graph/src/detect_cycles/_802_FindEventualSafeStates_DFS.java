@@ -1,7 +1,6 @@
 package src.detect_cycles;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -45,21 +44,31 @@ public class _802_FindEventualSafeStates_DFS {
 
         boolean[] isVisited = new boolean[numOfNodes];
         boolean[] isPathVisited = new boolean[numOfNodes];
-
-        List<Integer> safeNodes = new ArrayList<>();
+        boolean[] isSafeNode = new boolean[numOfNodes];
 
         for (int i = 0; i < numOfNodes; i++) {
 
             if (!isVisited[i]) {
-                isCyclePresent(i, isVisited, isPathVisited, adjList, safeNodes);
+                isCyclePresent(i, adjList, isVisited, isPathVisited, isSafeNode);
             }
         }
-        Collections.sort(safeNodes);
+
+        List<Integer> safeNodes = new ArrayList<>();
+        for (int i = 0; i < numOfNodes; i++) {
+            if (isSafeNode[i]) {
+                safeNodes.add(i);
+            }
+        }
+
         return safeNodes;
     }
 
-    private static boolean isCyclePresent(int currNode, boolean[] isVisited, boolean[] isPathVisited,
-                                          List<List<Integer>> adjList, List<Integer> safeNodes) {
+    /*
+    * Nodes involved in a cycle or leading to a cycle are explicitly marked as unsafe (isSafeNode[currNode] = false).
+    * Nodes not part of a cycle are marked as safe (isSafeNode[currNode] = true) after backtracking.
+     */
+    private static boolean isCyclePresent(int currNode, List<List<Integer>> adjList,
+                                          boolean[] isVisited, boolean[] isPathVisited, boolean[] isSafeNode) {
 
         isVisited[currNode] = true;
         isPathVisited[currNode] = true;
@@ -67,18 +76,24 @@ public class _802_FindEventualSafeStates_DFS {
         for (int adjNode : adjList.get(currNode)) {
 
             if (isVisited[adjNode] && isPathVisited[adjNode]) {
+                // we've found a node which have been already visited and in the same path itself
+                // Cycle detected, mark current node as unsafe
+                isSafeNode[currNode] = false;
                 return true;
             }
 
             if (!isVisited[adjNode]) {
-                if (isCyclePresent(adjNode, isVisited, isPathVisited, adjList, safeNodes)) {
+                if (isCyclePresent(adjNode, adjList, isVisited, isPathVisited, isSafeNode)) {
+                    // If a cycle is detected in the recursive call, mark current node as unsafe
+                    isSafeNode[currNode] = false;
                     return true;
                 }
             }
         }
-        isPathVisited[currNode] = false;
-        safeNodes.add(currNode);
-        return false;
+        isPathVisited[currNode] = false; // this will help in backtracking
+        isSafeNode[currNode] = true; // we've found on circles here, so it is a safe node.
+
+        return false; // circle not found
     }
 
     private static List<List<Integer>> getAdjList(int numOfNodes, int[][] adjMatrix) {
