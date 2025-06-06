@@ -1,4 +1,4 @@
-package src.topo_sort;
+package src.topo_sort._2_courseSchedule;
 
 import java.util.*;
 

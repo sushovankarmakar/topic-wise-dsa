@@ -1,4 +1,4 @@
-package src.topo_sort.basics;
+package src.topo_sort._1_basics;
 
 import java.util.ArrayList;
 import java.util.List;
