@@ -1,4 +1,4 @@
-package src.topo_sort._2_courseSchedule;
+package src._5_topo_sort._2_courseSchedule;
 
 import java.util.ArrayList;
 import java.util.List;

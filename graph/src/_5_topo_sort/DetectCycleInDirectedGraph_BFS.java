@@ -1,4 +1,4 @@
-package src.detect_cycles;
+package src._5_topo_sort;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

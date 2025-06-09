@@ -1,32 +1,21 @@
-package src.topo_sort._2_courseSchedule;
+package src._5_topo_sort._2_courseSchedule;
 
 import java.util.*;
 
 /**
- * https://leetcode.com/problems/course-schedule-ii/description/
+ * https://leetcode.com/problems/course-schedule/description/
  *
  * https://www.youtube.com/watch?v=WAOfKpxYHR8&ab_channel=takeUforward (Striver)
  * https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/
  */
-public class _210_CourseSchedule_2_BFS {
+public class _207_CourseSchedule {
 
     public static void main(String[] args) {
-        int[] result = findOrder(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}});
-        StringBuilder sb = new StringBuilder();
-        for (int i : result) {
-            sb.append(i).append(" ");
-        }
-        System.out.println(sb);
-
-        int[] result1 = findOrder(2, new int[][]{{0, 1}, {1, 0}});
-        StringBuilder sb1 = new StringBuilder();
-        for (int i : result1) {
-            sb1.append(i).append(" ");
-        }
-        System.out.println(sb1);
+        System.out.println(canFinish(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}}));  // true
+        System.out.println(canFinish(2, new int[][]{{0, 1}, {1, 0}}));                  // false
     }
 
-    private static int[] findOrder(int numCourses, int[][] prerequisites) {
+    private static boolean canFinish(int numCourses, int[][] prerequisites) {
 
         List<List<Integer>> adjList = getAdjList(numCourses, prerequisites);
         int[] inDegrees = getInDegree(numCourses, adjList);
@@ -55,18 +44,7 @@ public class _210_CourseSchedule_2_BFS {
             }
         }
 
-        // if there is a cycle in DAG, we can't oder the courses
-        if (stack.size() != numCourses) {
-            return new int[0];
-        }
-
-        int[] orderOfCourses = new int[numCourses];
-        int i = 0;
-        while(!stack.isEmpty()) {
-            orderOfCourses[i++] = stack.pop();
-        }
-
-        return orderOfCourses;
+        return stack.size() == numCourses;
     }
 
     private static List<List<Integer>> getAdjList(int numCourses, int[][] prerequisites) {

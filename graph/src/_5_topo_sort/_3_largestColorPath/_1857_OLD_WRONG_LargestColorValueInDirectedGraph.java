@@ -1,4 +1,4 @@
-package src.topo_sort._3_largestColorPath;
+package src._5_topo_sort._3_largestColorPath;
 
 import java.util.ArrayList;
 import java.util.HashMap;
