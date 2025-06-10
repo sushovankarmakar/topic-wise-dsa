@@ -1,8 +1,8 @@
-package src.matrix;
+package src._6_matrix;
 
 /**
  * https://www.youtube.com/watch?v=C-2_uSRli8o (Striver) - He solved it using DFS. I did using BFS.
- *
+ * <p>
  * https://leetcode.com/problems/flood-fill/
  * https://practice.geeksforgeeks.org/problems/flood-fill-algorithm1856/1
  */
@@ -15,6 +15,8 @@ public class _733_FloodFillAlgorithm_DFS {
      * space : O(M * N)
      */
     public int[][] floodFill(int[][] image, int startRow, int startCol, int newColor) {
+
+        if (startCol == newColor) return image; // base case check.
 
         int n = image.length;
         int m = image[0].length;

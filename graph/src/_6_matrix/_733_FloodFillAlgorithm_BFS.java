@@ -1,11 +1,11 @@
-package src.matrix;
+package src._6_matrix;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * https://www.youtube.com/watch?v=C-2_uSRli8o (Striver) - He solved it using DFS. I did using BFS.
- *
+ * https://www.youtube.com/watch?v=C-2_uSRli8o (Striver) - He solved it using DFS. I did use BFS.
+ * <p>
  * https://leetcode.com/problems/flood-fill/
  * https://practice.geeksforgeeks.org/problems/flood-fill-algorithm1856/1
  */
@@ -38,6 +38,8 @@ public class _733_FloodFillAlgorithm_BFS {
      * space : O(M * N)
      */
     private static int[][] floodFill(int[][] image, int startRow, int startCol, int newColor) {
+
+        if (startCol == newColor) return image; // base case check.
 
         int n = image.length;
         int m = image[0].length;
@@ -73,7 +75,7 @@ public class _733_FloodFillAlgorithm_BFS {
     }
 
     private static boolean isValidPixel(int newRow, int newCol, int[][] image, int startingColor,
-                                 boolean[][] isVisited) {
+                                        boolean[][] isVisited) {
 
         return newRow >= 0 && newCol >= 0 &&
                 newRow < image.length && newCol < image[0].length &&

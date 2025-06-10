@@ -1,4 +1,4 @@
-package src.matrix;
+package src._6_matrix;
 
 /**
  * https://www.geeksforgeeks.org/problems/number-of-enclaves/1

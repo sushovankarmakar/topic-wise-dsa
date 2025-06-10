@@ -1,4 +1,4 @@
-package src.matrix;
+package src._6_matrix;
 
 /**
  * https://leetcode.com/problems/surrounded-regions/description/

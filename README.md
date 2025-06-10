@@ -2,7 +2,7 @@
 topic wise dsa problems from leetcode and geeksforgeeks
 
 * 30.05.2025:
-  * [Minimum  Knights Moves](graph/src/matrix/_1197_MinimumKnightMoves.java)
+  * [Minimum  Knights Moves](graph/src/_6_matrix/_1197_MinimumKnightMoves.java)
   * [Reorder routes](graph/src/_1466_ReorderRoutes.java)
 * 29.05.2025:
   * [Find if Path Exists in Graph - DFS](graph/src/_3_bfs_dfs/_1971_FindIfPathExistsInGraph_DFS.java)

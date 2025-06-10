@@ -1,4 +1,4 @@
-package src.matrix;
+package src._6_matrix;
 
 import java.util.LinkedList;
 import java.util.Queue;
