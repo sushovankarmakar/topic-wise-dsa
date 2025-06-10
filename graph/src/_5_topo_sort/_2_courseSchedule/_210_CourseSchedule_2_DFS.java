@@ -139,13 +139,13 @@ public class _210_CourseSchedule_2_DFS {
             if (!isVisited[neighbour]) {
                 isVisited[neighbour] = true;
                 if (dfs(neighbour, adjList, isVisited, isPathVisited, stack)) {
-                    return true; // cycle found
+                    return true; // if in previous calls, cycles found then return directly from here. no need to traverse further.
                 }
             }
         }
 
-        stack.push(currNode);
-        isPathVisited[currNode] = false;
+        stack.push(currNode);               // all adjacent nodes have been visited, time to put it in stack
+        isPathVisited[currNode] = false;    // this is for backtracking
         return false; // cycle NOT found
     }
 
@@ -161,7 +161,7 @@ public class _210_CourseSchedule_2_DFS {
             int courseB = prerequisite.get(0);
             int courseA = prerequisite.get(1);
 
-            adjList.get(courseA).add(courseB);
+            adjList.get(courseA).add(courseB); // you must take courseA first if you want to take courseB
         }
 
         return adjList;

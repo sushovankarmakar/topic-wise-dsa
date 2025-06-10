@@ -36,7 +36,7 @@ public class _1_TopologicalSort_BFS {
 
         Queue<Integer> queue = new LinkedList<>();
 
-        for (int i = 0; i < inDegrees.length; i++) {
+        for (int i = 0; i < inDegrees.length; ++i) {
             if (inDegrees[i] == 0) {
                 queue.offer(i);
             }
@@ -51,9 +51,7 @@ public class _1_TopologicalSort_BFS {
 
             for (int adjNode : adjList.get(currNode)) {
 
-                inDegrees[adjNode] -= 1;
-
-                if (inDegrees[adjNode] == 0) {
+                if (--inDegrees[adjNode] == 0) {
                     queue.add(adjNode);
                 }
             }
@@ -70,18 +68,18 @@ public class _1_TopologicalSort_BFS {
     private List<List<Integer>> getAdjList(int v, int[][] edges, int[] inDegrees) {
 
         List<List<Integer>> adjList = new ArrayList<>();
-        for (int i = 0; i < v; i++) {
+        for (int i = 0; i < v; ++i) {
             adjList.add(new ArrayList<>());
         }
 
-        for (int i = 0; i < edges.length; i++) {
+        for (int i = 0; i < edges.length; ++i) {
 
             int src = edges[i][0];
             int dst = edges[i][1];
 
             adjList.get(src).add(dst);
 
-            inDegrees[dst] += 1;
+            ++inDegrees[dst];
         }
 
         return adjList;

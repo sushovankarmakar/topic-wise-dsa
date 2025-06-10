@@ -1,24 +1,30 @@
 package src._5_topo_sort._2_courseSchedule;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * https://leetcode.com/problems/course-schedule-ii/description/
- *
+ * <p>
  * https://www.youtube.com/watch?v=WAOfKpxYHR8&ab_channel=takeUforward (Striver)
  * https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/
  */
 public class _210_CourseSchedule_2_BFS {
 
     public static void main(String[] args) {
-        int[] result = findOrder(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}});
+
+        _210_CourseSchedule_2_BFS obj = new _210_CourseSchedule_2_BFS();
+
+        int[] result = obj.findOrder(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}});
         StringBuilder sb = new StringBuilder();
         for (int i : result) {
             sb.append(i).append(" ");
         }
         System.out.println(sb);
 
-        int[] result1 = findOrder(2, new int[][]{{0, 1}, {1, 0}});
+        int[] result1 = obj.findOrder(2, new int[][]{{0, 1}, {1, 0}});
         StringBuilder sb1 = new StringBuilder();
         for (int i : result1) {
             sb1.append(i).append(" ");
@@ -26,79 +32,55 @@ public class _210_CourseSchedule_2_BFS {
         System.out.println(sb1);
     }
 
-    private static int[] findOrder(int numCourses, int[][] prerequisites) {
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
 
-        List<List<Integer>> adjList = getAdjList(numCourses, prerequisites);
-        int[] inDegrees = getInDegree(numCourses, adjList);
+        int[] inDegrees = new int[numCourses];
+        List<List<Integer>> adjList = getAdjList(numCourses, prerequisites, inDegrees);
 
         Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < numCourses; i++) {
+        for (int i = 0; i < numCourses; ++i) {
             if (inDegrees[i] == 0) {
                 queue.add(i);
             }
         }
 
-        Stack<Integer> stack = new Stack<>();
+        int visitedNodes = 0;
+        int[] sortedTasks = new int[numCourses];
+        int i = 0;
 
         while (!queue.isEmpty()) {
 
-            int currNode = queue.remove();
-            stack.push(currNode);
+            int currNode = queue.poll();
+            sortedTasks[i++] = currNode;
+            ++visitedNodes;
 
             for (int adjNode : adjList.get(currNode)) {
 
-                inDegrees[adjNode]--;
-
-                if (inDegrees[adjNode] == 0) {
+                if (--inDegrees[adjNode] == 0) {
                     queue.add(adjNode);
                 }
             }
         }
 
-        // if there is a cycle in DAG, we can't oder the courses
-        if (stack.size() != numCourses) {
-            return new int[0];
-        }
-
-        int[] orderOfCourses = new int[numCourses];
-        int i = 0;
-        while(!stack.isEmpty()) {
-            orderOfCourses[i++] = stack.pop();
-        }
-
-        return orderOfCourses;
+        return visitedNodes == numCourses ? sortedTasks : new int[]{};
     }
 
-    private static List<List<Integer>> getAdjList(int numCourses, int[][] prerequisites) {
+    private static List<List<Integer>> getAdjList(int n, int[][] prerequisites, int[] inDegrees) {
 
         List<List<Integer>> adjList = new ArrayList<>();
-        for (int i = 0; i < numCourses; i++) {
+        for (int i = 0; i < n; ++i) {
             adjList.add(new ArrayList<>());
         }
 
-        for (int i = 0; i < prerequisites.length; i++) {
+        for (int i = 0; i < prerequisites.length; ++i) {
 
-            int src = prerequisites[i][0];
-            int dst = prerequisites[i][1];
+            int dst = prerequisites[i][0];
+            int src = prerequisites[i][1];
 
             adjList.get(src).add(dst);
+            ++inDegrees[dst];
         }
 
         return adjList;
-    }
-
-    private static int[] getInDegree(int numOfCourses, List<List<Integer>> adjList) {
-
-        int[] inDegrees = new int[numOfCourses];
-
-        for (int i = 0; i < adjList.size(); i++) {
-            for (int j = 0; j < adjList.get(i).size(); j++) {
-
-                int dst = adjList.get(i).get(j);
-                inDegrees[dst]++;
-            }
-        }
-
-        return inDegrees;
     }
 }
