@@ -1,4 +1,4 @@
-package src._6_matrix;
+package src._6_matrix._1_floodFill;
 
 /**
  * https://www.youtube.com/watch?v=C-2_uSRli8o (Striver) - He solved it using DFS. I did using BFS.

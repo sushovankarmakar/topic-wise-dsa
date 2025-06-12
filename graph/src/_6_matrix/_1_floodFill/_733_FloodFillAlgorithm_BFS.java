@@ -1,4 +1,4 @@
-package src._6_matrix;
+package src._6_matrix._1_floodFill;
 
 import java.util.LinkedList;
 import java.util.Queue;

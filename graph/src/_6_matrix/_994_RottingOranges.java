@@ -15,12 +15,12 @@ import java.util.Queue;
 public class _994_RottingOranges {
 
     public static void main(String[] args) {
-        int[][] grid1 = {
+        /*int[][] grid1 = {
                 {0, 1, 2},
                 {0, 1, 2},
                 {2, 1, 1}
         };
-        System.out.println(orangesRotting(grid1));   // 1
+        System.out.println(orangesRotting(grid1));   // 1*/
 
         int[][] grid2 = {
                 {2, 1, 1},
@@ -28,26 +28,30 @@ public class _994_RottingOranges {
                 {0, 1, 1}};
         System.out.println(orangesRotting(grid2));   // 4
 
-        int[][] grid3 = {
+        /*int[][] grid3 = {
                 {2, 1, 1},
                 {0, 1, 1},
                 {1, 0, 1}};
         System.out.println(orangesRotting(grid3));   // -1
 
         int[][] grid4 = {{0, 2}};
-        System.out.println(orangesRotting(grid4));  // 0
+        System.out.println(orangesRotting(grid4));  // 0*/
     }
 
     /**
      * time : O(n * m)
      * space ; O(n * m)
      */
+    // intuition of BFS
+    // BFS is used when we need something in minimum steps
+
     private static int orangesRotting(int[][] grid) {
 
         int freshOrange = 0;
 
         Queue<Tuple> queue = new LinkedList<>();
 
+        // there can be multiple rotten oranges at the start, add of them into queue first
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
 
@@ -88,7 +92,7 @@ public class _994_RottingOranges {
                 if (isFreshOrange(newRow, newCol, grid)) {
 
                     freshOrange--;
-                    grid[newRow][newCol] = 2; // mark it as rotten - IMPORTANT : I forgot this.
+                    grid[newRow][newCol] = 2; // marking 2 as rotten and visited. - IMPORTANT : I forgot this.
 
                     queue.add(new Tuple(newRow, newCol, newTime));
                 }
