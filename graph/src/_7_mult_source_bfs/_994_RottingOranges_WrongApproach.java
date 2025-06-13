@@ -1,4 +1,4 @@
-package src._6_matrix;
+package src._7_mult_source_bfs;
 
 import java.util.LinkedList;
 import java.util.Queue;
