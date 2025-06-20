@@ -1,4 +1,4 @@
-package src.shortest_path_algo.dijkstra_algo;
+package src._8_shortest_path_algo._1_singleSource._2_positive_weights_dijkstra._2_application._1_matrix;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -80,6 +80,11 @@ public class _1631_PathWithMinEffort {
 
         return effortArr[n - 1][m - 1];
     }
+
+    // WHY -> int maxEffort = Math.max(adjEffort, currEffort);
+    // when we're comparing adjEffort with currEffort,
+    // can adjEffort ever be smaller than currEffort?
+    // YES. because, currEffort is the ABSOLUTE difference, and ABSOLUTE difference can be smaller
 
     private static class Tuple {
         int row;
