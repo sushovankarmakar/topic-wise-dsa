@@ -1,9 +1,9 @@
-package src.bfs_dfs;
+package src._5_graphColoring;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class _785_IsBipartiteGraph {
+public class _785_IsBipartite_DFS {
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
@@ -37,7 +37,7 @@ public class _785_IsBipartiteGraph {
      */
     private static boolean isBipartite(int numOfNodes, ArrayList<ArrayList<Integer>> adjList) {
 
-        int[] colorArr = new int[numOfNodes];   // this color array will work as visited array also.
+        int[] colorArr = new int[numOfNodes];   // this color array will work as a visited array also.
         Arrays.fill(colorArr, -1);          // -1 = not visited, 0/1 = visited and colored.
 
         for (int i = 0; i < numOfNodes; i++) { // this graph can have multiple components, we need cover everyone.
