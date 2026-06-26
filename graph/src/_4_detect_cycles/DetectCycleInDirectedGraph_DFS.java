@@ -10,9 +10,16 @@ import java.util.List;
  */
 public class DetectCycleInDirectedGraph_DFS {
 
+    public static void main(String[] args) {
+        DetectCycleInDirectedGraph_DFS o = new DetectCycleInDirectedGraph_DFS();
+        int v = 5;
+        int[][] edges = {{3, 0}, {4, 2}, {1, 2}};
+        System.out.println(o.isCyclic(v, edges));
+    }
+
     private boolean isCyclic(int v, int[][] edges) {
 
-        List<List<Integer>> adjList = getAdjList(v, edges);
+        List<List<Integer>> adjList = getAdjList(v, edges, true);
 
         /**
          * isVisited 		= to check if this current node has been visited or not.
@@ -60,11 +67,10 @@ public class DetectCycleInDirectedGraph_DFS {
          * although we may come back to this node from different path
          */
         isPathVisited[currNode] = false;
-
         return false;
     }
 
-    private List<List<Integer>> getAdjList(int v, int[][] edges) {
+    private List<List<Integer>> getAdjList(int v, int[][] edges, boolean isDirected) {
 
         List<List<Integer>> adjList = new ArrayList<>();
 
@@ -72,16 +78,16 @@ public class DetectCycleInDirectedGraph_DFS {
             adjList.add(new ArrayList<>());
         }
 
-        for (int i = 0; i < edges.length; i++) {
+        for (int[] edge : edges) {
 
-            int src = edges[i][0];
-            int dst = edges[i][1];
+            int src = edge[0];
+            int dst = edge[1];
 
-            adjList.get(src).add(dst); // this is a directed graph.
+            adjList.get(src).add(dst);
+            if (!isDirected) {
+                adjList.get(dst).add(src); // this is a directed graph.
+            }
         }
-
         return adjList;
     }
-
-
 }
