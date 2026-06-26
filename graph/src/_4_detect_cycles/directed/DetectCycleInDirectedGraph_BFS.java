@@ -1,4 +1,4 @@
-package src._4_detect_cycles;
+package src._4_detect_cycles.directed;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
