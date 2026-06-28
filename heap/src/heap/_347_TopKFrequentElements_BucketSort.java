@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 /*
-https://leetcode.com/problems/top-k-frequent-elements/description/
+    https://leetcode.com/problems/top-k-frequent-elements/description/
  */
 public class _347_TopKFrequentElements_BucketSort {
     
+    @SuppressWarnings("unchecked")
     public int[] topKFrequent(int[] nums, int k) {
 
         if (k == nums.length) return nums; // base case
